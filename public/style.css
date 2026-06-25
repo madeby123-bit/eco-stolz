@@ -524,3 +524,7 @@ body::after {
   .models-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 480px) { .specs-grid { grid-template-columns: 1fr; } }
+
+/* Lesbarkeit: problem__list auf dunklem .how-Hintergrund hell darstellen */
+.how .problem__list strong { color: #fff; }
+.how .problem__list li { color: rgba(255, 255, 255, 0.82); }
