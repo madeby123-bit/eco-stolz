@@ -528,3 +528,6 @@ body::after {
 /* Lesbarkeit: problem__list auf dunklem .how-Hintergrund hell darstellen */
 .how .problem__list strong { color: #fff; }
 .how .problem__list li { color: rgba(255, 255, 255, 0.82); }
+
+/* Original-Icons in Benefit-Karten */
+.b-icon { width: 66px; height: 66px; object-fit: contain; display: block; margin-bottom: 0.9rem; }
