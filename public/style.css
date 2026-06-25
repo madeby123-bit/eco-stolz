@@ -388,3 +388,43 @@ html.js .in [data-zoom], html.js [data-zoom].in { transform: scale(1); }
   .hardness__grid { grid-template-columns: 1fr; }
   .subhero { min-height: 64vh; }
 }
+
+/* =========================================================
+   Nav dropdown (Wasserwissen)
+   ========================================================= */
+.nav__item--has-sub { position: relative; display: flex; align-items: center; }
+.nav__caret { font-size: 0.65em; margin-left: 0.35rem; opacity: 0.7; transition: transform 0.25s var(--ease); display: inline-block; }
+.nav__item--has-sub:hover .nav__caret,
+.nav__item--has-sub:focus-within .nav__caret { transform: rotate(180deg); }
+/* invisible hover-bridge so the menu doesn't close in the gap */
+.nav__item--has-sub::before { content: ""; position: absolute; top: 100%; left: -0.6rem; right: -0.6rem; height: 1rem; }
+.nav__sub {
+  position: absolute; top: calc(100% + 0.7rem); left: 0; min-width: 240px;
+  background: rgba(4, 20, 31, 0.97); backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px; padding: 0.5rem;
+  display: flex; flex-direction: column; gap: 0.1rem; z-index: 101;
+  opacity: 0; visibility: hidden; transform: translateY(8px);
+  transition: opacity 0.25s var(--ease), transform 0.25s var(--ease), visibility 0.25s;
+  box-shadow: 0 24px 60px -22px rgba(0, 0, 0, 0.75);
+}
+.nav__item--has-sub:hover .nav__sub,
+.nav__item--has-sub:focus-within .nav__sub { opacity: 1; visibility: visible; transform: translateY(0); }
+.nav__sublink {
+  color: rgba(255, 255, 255, 0.82); padding: 0.65rem 0.9rem; border-radius: 9px;
+  font-size: 0.9rem; font-weight: 500; white-space: nowrap;
+  transition: background 0.2s, color 0.2s;
+}
+.nav__sublink:hover { background: rgba(25, 181, 214, 0.16); color: #fff; }
+.nav__sublink[aria-current] { color: var(--aqua); }
+
+@media (max-width: 680px) {
+  .nav__item--has-sub { flex-direction: column; align-items: flex-start; width: 100%; }
+  .nav__item--has-sub::before { display: none; }
+  .nav__caret { display: none; }
+  .nav__sub {
+    position: static; opacity: 1; visibility: visible; transform: none;
+    background: none; backdrop-filter: none; border: 0; box-shadow: none;
+    padding: 0.6rem 0 0 0.9rem; margin-top: 0.4rem; min-width: 0; gap: 0.5rem; z-index: auto;
+  }
+  .nav__sublink { font-size: 1rem; padding: 0.2rem 0; white-space: normal; }
+}
