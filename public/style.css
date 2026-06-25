@@ -428,3 +428,30 @@ html.js .in [data-zoom], html.js [data-zoom].in { transform: scale(1); }
   }
   .nav__sublink { font-size: 1rem; padding: 0.2rem 0; white-space: normal; }
 }
+
+/* =========================================================
+   Wasseraufbereitung – h5/h6, Vorteile, verschachtelter Wissensblock
+   ========================================================= */
+h5 { font-family: var(--sans); font-size: 1rem; font-weight: 700; line-height: 1.3; }
+h6 { font-family: var(--sans); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--teal); }
+
+/* Vorteils-Karten */
+.benefits__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.3rem; }
+.benefit-card { background: var(--white); border: 1px solid var(--line); border-radius: var(--r); padding: 1.9rem 1.6rem; transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease); }
+.benefit-card:hover { transform: translateY(-8px); box-shadow: var(--shadow); }
+.benefit-card .b-tag { font-family: var(--serif); font-size: 1.7rem; color: var(--aqua); display: block; line-height: 1; margin-bottom: 0.8rem; }
+.benefit-card h3 { font-size: 1.18rem; margin-bottom: 0.4rem; }
+.benefit-card p { color: var(--muted); font-size: 0.93rem; margin: 0; }
+
+/* Verschachtelter Wissensblock (h3 > h4 > h5 > h6) */
+.depth h3 { font-size: clamp(1.3rem, 2.2vw, 1.6rem); margin-bottom: 0.6rem; }
+.depth p { color: var(--muted); font-size: 0.97rem; margin-bottom: 0.5rem; }
+.depth .lvl3 { margin-bottom: 2.2rem; }
+.depth .lvl4 { padding-left: 1.2rem; border-left: 2px solid var(--line); margin-top: 1rem; }
+.depth h4 { font-size: 1.15rem; margin: 0 0 0.4rem; color: var(--ink); }
+.depth .lvl5 { padding-left: 1rem; border-left: 2px solid rgba(13, 138, 166, 0.28); margin-top: 0.9rem; }
+.depth h5 { margin: 0 0 0.25rem; color: var(--ink); }
+.depth h6 { margin: 0.7rem 0 0.1rem; }
+
+@media (max-width: 900px) { .benefits__grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .benefits__grid { grid-template-columns: 1fr; } }
