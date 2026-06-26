@@ -557,3 +557,13 @@ body::after {
 .studie-fig figcaption { padding: 1rem 1.2rem; font-size: 0.92rem; color: var(--ink-2); }
 .studie-fig figcaption strong { display: block; color: var(--teal); margin-bottom: 0.15rem; }
 @media (max-width: 760px) { .studie-grid { grid-template-columns: 1fr; } }
+
+/* Kontakt – Karte & Kontaktdaten */
+.map-embed { border-radius: var(--r); overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--line); line-height: 0; }
+.map-embed iframe { width: 100%; height: 440px; border: 0; display: block; }
+.contact-info { list-style: none; display: grid; gap: 1.2rem; margin-top: 1.8rem; }
+.contact-info li { padding-left: 2.2rem; position: relative; }
+.contact-info li::before { content: ""; position: absolute; left: 0; top: 0.15em; width: 1.3rem; height: 1.3rem; border-radius: 6px; background: var(--grad-aqua); }
+.contact-info strong { display: block; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--teal); }
+.contact-info a, .contact-info span { color: var(--ink); font-size: 1.05rem; }
+@media (max-width: 680px) { .map-embed iframe { height: 320px; } }
