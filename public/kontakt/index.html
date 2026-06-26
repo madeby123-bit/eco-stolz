@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/style.css?v=20260641" />
+  <link rel="stylesheet" href="/style.css?v=20260642" />
 
   <script type="application/ld+json">
   {
@@ -103,7 +103,7 @@
           </div>
         </div>
               <a href="/kontakt" class="nav__link">Kontakt</a>
-        <a href="/kontakt" class="nav__link nav__link--cta">Anfrage senden</a>
+        <a href="/kontakt#anfrage" class="nav__link nav__link--cta">Anfrage senden</a>
       </nav>
       <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen">
         <span></span><span></span><span></span>
@@ -159,7 +159,7 @@
           </li>
         </ul>
         <div class="hero__actions reveal" data-reveal data-delay="380" style="margin-top:2rem;">
-          <a href="mailto:office@eco-stolz.com?subject=Anfrage%20Eco%20Stolz" class="btn btn--primary">Anfrage senden</a>
+          <a href="#anfrage" class="btn btn--primary">Zum Anfrageformular</a>
           <a href="/#produkte" class="btn btn--ghost">Produkte ansehen</a>
         </div>
       </div>
@@ -169,6 +169,63 @@
           <span class="problem__badge-label" style="font-size:0.9rem;"><strong style="color:var(--aqua);">Christopher Kaier, BA</strong><br>dein Ansprechpartner</span>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ANFRAGEFORMULAR -->
+  <section class="section" id="anfrage" style="padding-top:0;" aria-labelledby="form-title">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow reveal" data-reveal>Anfrageformular</p>
+        <h2 class="reveal" data-reveal data-delay="80" id="form-title">Schreib uns deine Anfrage.</h2>
+        <p class="lead reveal" data-reveal data-delay="160">
+          Fülle einfach das Formular aus – wir melden uns zeitnah persönlich bei dir zurück.
+        </p>
+      </div>
+      <form class="cform reveal" data-reveal id="contactForm" action="https://formsubmit.co/office@eco-stolz.com" method="POST" novalidate>
+        <div class="cform__grid">
+          <div class="cform__row cform__row--2">
+            <div class="cform__field">
+              <label for="cf-name">Name <span class="req">*</span></label>
+              <input type="text" id="cf-name" name="Name" autocomplete="name" placeholder="Vor- und Nachname" required />
+            </div>
+            <div class="cform__field">
+              <label for="cf-email">E-Mail <span class="req">*</span></label>
+              <input type="email" id="cf-email" name="E-Mail" autocomplete="email" placeholder="name@beispiel.at" required />
+            </div>
+          </div>
+          <div class="cform__field">
+            <label for="cf-subject">Betreff <span class="req">*</span></label>
+            <input type="text" id="cf-subject" name="Betreff" placeholder="Worum geht es?" required />
+          </div>
+          <div class="cform__field">
+            <label for="cf-message">Nachricht <span class="req">*</span></label>
+            <textarea id="cf-message" name="Nachricht" placeholder="Erzähl uns kurz von deinem Anliegen …" required></textarea>
+          </div>
+          <fieldset class="cform__field" style="border:0;padding:0;margin:0;">
+            <legend class="cform__legend">Anwendungsfall <span style="font-weight:400;color:rgba(24,33,62,0.55);">(Mehrfachauswahl möglich)</span></legend>
+            <div class="cform__checks">
+              <label class="cform__check"><input type="checkbox" name="Anwendungsfall" value="Ausgewählte Geräte schützen (z.B. Boiler, Waschmaschine)" /><span>Ausgewählte Geräte schützen (z.B. Boiler, Waschmaschine)</span></label>
+              <label class="cform__check"><input type="checkbox" name="Anwendungsfall" value="Gesamtes Haus schützen" /><span>Gesamtes Haus schützen</span></label>
+              <label class="cform__check"><input type="checkbox" name="Anwendungsfall" value="Betriebliche Nutzung/Anlage schützen" /><span>Betriebliche Nutzung/Anlage schützen</span></label>
+              <label class="cform__check"><input type="checkbox" name="Anwendungsfall" value="Exklusive Badwelten" /><span>Exklusive Badwelten</span></label>
+              <label class="cform__check"><input type="checkbox" name="Anwendungsfall" value="UV Anlage" /><span>UV Anlage</span></label>
+              <label class="cform__check"><input type="checkbox" name="Anwendungsfall" value="Wasserfilter" /><span>Wasserfilter</span></label>
+              <label class="cform__check"><input type="checkbox" name="Anwendungsfall" value="Rohrreinigung" /><span>Rohrreinigung</span></label>
+            </div>
+          </fieldset>
+          <input type="text" name="_honey" class="cform__hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <input type="hidden" name="_subject" value="Neue Anfrage über eco-stolz.com" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_next" value="https://www.eco-stolz.com/kontakt?gesendet=1" />
+          <div class="cform__actions">
+            <button type="submit" class="btn btn--primary" id="cfSubmit">Anfrage absenden</button>
+            <span class="cform__note">Pflichtfelder sind mit <span class="req">*</span> markiert.</span>
+          </div>
+        </div>
+        <div class="cform__status" id="cfStatus" role="status" aria-live="polite"></div>
+      </form>
     </div>
   </section>
 
@@ -297,6 +354,42 @@
     </div>
   </footer>
 
-  <script src="/main.js?v=20260641"></script>
+  <script src="/main.js?v=20260642"></script>
+  <script>
+  (function () {
+    var form = document.getElementById('contactForm');
+    if (!form) return;
+    var statusEl = document.getElementById('cfStatus');
+    var btn = document.getElementById('cfSubmit');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      if (form.querySelector('[name="_honey"]').value) { return; }
+      var orig = btn.textContent;
+      btn.disabled = true; btn.textContent = 'Wird gesendet …';
+      var fd = new FormData(form);
+      var anwend = fd.getAll('Anwendungsfall');
+      var data = {};
+      fd.forEach(function (v, k) { if (k === 'Anwendungsfall' || k === '_honey') return; data[k] = v; });
+      data['Anwendungsfall'] = anwend.length ? anwend.join(', ') : '—';
+      fetch('https://formsubmit.co/ajax/office@eco-stolz.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      }).then(function (r) { return r.json(); }).then(function () {
+        form.querySelector('.cform__grid').style.display = 'none';
+        statusEl.className = 'cform__status cform__status--ok';
+        statusEl.innerHTML = '<strong>Danke für deine Anfrage!</strong><br>Wir haben deine Nachricht erhalten und melden uns zeitnah persönlich bei dir zurück.';
+        statusEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }).catch(function () {
+        btn.disabled = false; btn.textContent = orig;
+        statusEl.className = 'cform__status cform__status--err';
+        var subj = encodeURIComponent(form.Betreff.value || 'Anfrage Eco Stolz');
+        var body = encodeURIComponent((form.Name.value ? 'Name: ' + form.Name.value + '\n\n' : '') + (form.Nachricht.value || ''));
+        statusEl.innerHTML = 'Das Formular konnte gerade nicht gesendet werden. Bitte schreib uns direkt an <a href="mailto:office@eco-stolz.com?subject=' + subj + '&body=' + body + '">office@eco-stolz.com</a>.';
+      });
+    });
+  })();
+  </script>
 </body>
 </html>

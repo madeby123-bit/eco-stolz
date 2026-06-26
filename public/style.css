@@ -567,3 +567,34 @@ body::after {
 .contact-info strong { display: block; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--teal); }
 .contact-info a, .contact-info span { color: var(--ink); font-size: 1.05rem; }
 @media (max-width: 680px) { .map-embed iframe { height: 320px; } }
+
+/* ===== Kontaktformular ===== */
+.cform { max-width: 780px; margin: 0 auto; }
+.cform__grid { display: grid; gap: 1.15rem; }
+.cform__row { display: grid; gap: 1.15rem; }
+@media (min-width: 620px) { .cform__row--2 { grid-template-columns: 1fr 1fr; } }
+.cform__field { display: flex; flex-direction: column; gap: 0.5rem; }
+.cform__field label, .cform__legend { font-weight: 600; font-size: 0.92rem; color: var(--ink); letter-spacing: 0.01em; }
+.cform .req { color: var(--aqua); }
+.cform input[type="text"], .cform input[type="email"], .cform textarea {
+  width: 100%; padding: 0.92rem 1.05rem; border: 1px solid var(--line); border-radius: 14px;
+  background: #fff; font: inherit; color: var(--ink); transition: border-color .2s, box-shadow .2s;
+}
+.cform input::placeholder, .cform textarea::placeholder { color: rgba(24,33,62,0.4); }
+.cform input:focus, .cform textarea:focus { outline: none; border-color: var(--aqua); box-shadow: 0 0 0 3px rgba(239,121,62,0.16); }
+.cform textarea { min-height: 160px; resize: vertical; }
+.cform__legend { display: block; margin-bottom: 0.7rem; }
+.cform__checks { display: grid; gap: 0.7rem; grid-template-columns: 1fr; }
+@media (min-width: 620px) { .cform__checks { grid-template-columns: 1fr 1fr; } }
+.cform__check { display: flex; align-items: flex-start; gap: 0.65rem; padding: 0.8rem 0.95rem; border: 1px solid var(--line);
+  border-radius: 13px; cursor: pointer; transition: border-color .2s, background .2s; font-size: 0.92rem; color: var(--ink); line-height: 1.35; }
+.cform__check:hover { border-color: rgba(239,121,62,0.55); }
+.cform__check input { margin-top: 0.12rem; accent-color: var(--aqua); width: 1.1rem; height: 1.1rem; flex: none; }
+.cform__check:has(input:checked) { border-color: var(--aqua); background: rgba(239,121,62,0.07); }
+.cform__actions { display: flex; align-items: center; gap: 1.1rem; flex-wrap: wrap; margin-top: 0.3rem; }
+.cform__note { font-size: 0.82rem; color: rgba(24,33,62,0.6); }
+.cform__hp { position: absolute !important; left: -9999px !important; width: 1px; height: 1px; opacity: 0; overflow: hidden; }
+.cform__status { display: none; margin-top: 0.4rem; padding: 1.15rem 1.3rem; border-radius: 14px; font-size: 1rem; line-height: 1.5; }
+.cform__status--ok { display: block; background: rgba(39,150,86,0.1); color: #1d7a44; border: 1px solid rgba(39,150,86,0.32); }
+.cform__status--err { display: block; background: rgba(214,69,69,0.09); color: #b23535; border: 1px solid rgba(214,69,69,0.32); }
+.cform__status a { color: inherit; font-weight: 600; text-decoration: underline; }
