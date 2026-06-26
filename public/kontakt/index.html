@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/style.css?v=20260642" />
+  <link rel="stylesheet" href="/style.css?v=20260643" />
 
   <script type="application/ld+json">
   {
@@ -42,6 +42,8 @@
           "@type": "Organization",
           "name": "Eco Stolz – Energie & Wassertechnik",
           "email": "office@eco-stolz.com",
+          "telephone": "+43 664 3002026",
+          "vatID": "ATU74094428",
           "address": { "@type": "PostalAddress", "streetAddress": "Weißgatterstraße 12", "postalCode": "6020", "addressLocality": "Innsbruck", "addressCountry": "AT" }
         }
       },
@@ -59,6 +61,7 @@
   </script>
 </head>
 <body>
+  <a href="#main" class="skip-link">Zum Inhalt springen</a>
 
   <div class="scroll-progress" id="scrollProgress"></div>
 
@@ -110,6 +113,7 @@
       </button>
     </div>
   </header>
+  <a id="main" tabindex="-1"></a>
 
   <!-- SUBHERO -->
   <section class="subhero" aria-labelledby="page-title" style="min-height:58vh;">
@@ -148,6 +152,10 @@
           <li class="reveal" data-reveal data-delay="200">
             <strong>E-Mail</strong>
             <a href="mailto:office@eco-stolz.com">office@eco-stolz.com</a>
+          </li>
+          <li class="reveal" data-reveal data-delay="230">
+            <strong>Telefon</strong>
+            <a href="tel:+436643002026">+43&nbsp;664&nbsp;3002026</a>
           </li>
           <li class="reveal" data-reveal data-delay="260">
             <strong>Adresse</strong>
@@ -236,11 +244,15 @@
         <p class="eyebrow reveal" data-reveal>So findest du uns</p>
         <h2 class="reveal" data-reveal data-delay="80" id="map-title">Mitten in Innsbruck.</h2>
       </div>
-      <div class="map-embed reveal" data-reveal>
+      <div class="map-embed consent-gate reveal" id="mapGate" data-reveal data-src="https://maps.google.com/maps?q=Wei%C3%9Fgatterstra%C3%9Fe%2012%2C%206020%20Innsbruck%2C%20%C3%96sterreich&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed">
         <iframe
           title="Standort Eco Stolz – Weißgatterstraße 12, 6020 Innsbruck"
-          src="https://maps.google.com/maps?q=Wei%C3%9Fgatterstra%C3%9Fe%2012%2C%206020%20Innsbruck%2C%20%C3%96sterreich&t=&z=15&ie=UTF8&iwloc=&output=embed"
           loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        <div class="consent-gate__ph">
+          <p>Hier wird eine Karte von Google&nbsp;Maps angezeigt. Dabei werden Daten an Google übertragen. Mit dem Laden stimmst du der <a href="/datenschutz">Datenschutzerklärung</a> zu.</p>
+          <button type="button" class="btn btn--primary js-load-embed">Karte laden</button>
+          <button type="button" class="footer__legal-btn js-cookie-settings" style="color:rgba(24,33,62,0.6);text-decoration:underline;">Cookie-Einstellungen öffnen</button>
+        </div>
       </div>
     </div>
   </section>
@@ -344,17 +356,44 @@
         <div>
           <h3>Kontakt</h3>
           <a href="mailto:office@eco-stolz.com">office@eco-stolz.com</a>
+          <a href="tel:+436643002026">+43 664 3002026</a>
           <span>Weißgatterstraße 12<br>6020 Innsbruck, Österreich</span>
         </div>
       </div>
     </div>
     <div class="footer__bottom">
       <span>© 2026 Eco Stolz – Energie &amp; Wassertechnik</span>
+      <nav class="footer__legal" aria-label="Rechtliches">
+        <a href="/impressum">Impressum</a>
+        <a href="/datenschutz">Datenschutz</a>
+        <button type="button" class="footer__legal-btn js-cookie-settings">Cookie-Einstellungen</button>
+      </nav>
       <span>Ohne Chemie · Ohne Salz · Made in Austria</span>
     </div>
   </footer>
 
-  <script src="/main.js?v=20260642"></script>
+  <div class="cookie" id="cookieBanner" role="dialog" aria-modal="false" aria-labelledby="cookieTitle" aria-describedby="cookieDesc" hidden>
+    <h2 id="cookieTitle">Datenschutz &amp; Cookies</h2>
+    <p id="cookieDesc">Wir verwenden nur technisch notwendige Cookies, damit diese Website funktioniert. Für eingebettete Inhalte wie Google&nbsp;Maps werden – ausschließlich mit deiner Einwilligung – Daten an Drittanbieter übertragen. Mehr dazu in unserer <a href="/datenschutz">Datenschutzerklärung</a>.</p>
+    <div class="cookie__options" id="cookieOptions">
+      <div class="cookie__opt">
+        <input type="checkbox" id="cookieOptNec" checked disabled />
+        <label for="cookieOptNec">Notwendig <small>Für den Betrieb der Website erforderlich. Immer aktiv.</small></label>
+      </div>
+      <div class="cookie__opt">
+        <input type="checkbox" id="cookieOptMedia" />
+        <label for="cookieOptMedia">Externe Medien <small>Lädt z.&nbsp;B. Google Maps. Dabei werden Daten an Google übertragen.</small></label>
+      </div>
+    </div>
+    <div class="cookie__actions">
+      <button type="button" class="btn btn--primary" id="cookieAcceptAll">Alle akzeptieren</button>
+      <button type="button" class="btn btn--ghost" id="cookieAcceptNecessary">Nur notwendige</button>
+      <button type="button" class="cookie__link" id="cookieSettings">Einstellungen</button>
+      <button type="button" class="cookie__link cookie__save" id="cookieSave">Auswahl speichern</button>
+    </div>
+  </div>
+
+  <script src="/main.js?v=20260643"></script>
   <script>
   (function () {
     var form = document.getElementById('contactForm');

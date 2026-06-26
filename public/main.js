@@ -97,9 +97,12 @@
   const navToggle = document.getElementById('navToggle');
   const nav = document.getElementById('nav');
   if (navToggle && nav) {
+    navToggle.setAttribute('aria-expanded', 'false');
+    navToggle.setAttribute('aria-controls', 'nav');
     navToggle.addEventListener('click', function () {
       const open = nav.classList.toggle('open');
       navToggle.classList.toggle('open', open);
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
       navToggle.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
     });
     nav.querySelectorAll('a').forEach(function (a) {
@@ -121,4 +124,79 @@
 
   /* initial paint */
   onScroll();
+})();
+
+/* =========================================================
+   Eco Stolz – Cookie-Consent (DSGVO)
+   ========================================================= */
+(function () {
+  'use strict';
+  var KEY = 'eco_consent_v1';
+  var banner = document.getElementById('cookieBanner');
+
+  function read() {
+    try { return JSON.parse(localStorage.getItem(KEY)); } catch (e) { return null; }
+  }
+  function save(consent) {
+    consent.ts = new Date().toISOString();
+    try { localStorage.setItem(KEY, JSON.stringify(consent)); } catch (e) {}
+    apply(consent);
+  }
+  function apply(consent) {
+    if (consent && consent.external_media) {
+      document.querySelectorAll('.consent-gate[data-src]').forEach(function (gate) {
+        if (gate.classList.contains('is-loaded')) return;
+        var iframe = gate.querySelector('iframe');
+        if (iframe && !iframe.src) iframe.src = gate.getAttribute('data-src');
+        gate.classList.add('is-loaded');
+      });
+    }
+  }
+
+  // Apply any stored consent immediately (for gated media on this page).
+  var stored = read();
+  if (stored) apply(stored);
+
+  if (!banner) return;
+
+  var optMedia = document.getElementById('cookieOptMedia');
+
+  function showBanner(openSettings) {
+    if (stored && optMedia) optMedia.checked = !!stored.external_media;
+    banner.classList.toggle('is-open', !!openSettings);
+    banner.classList.add('is-visible');
+    banner.removeAttribute('hidden');
+  }
+  function hideBanner() { banner.classList.remove('is-visible'); }
+
+  if (!stored) showBanner(false);
+
+  var byId = function (id) { return document.getElementById(id); };
+  var btnAll = byId('cookieAcceptAll');
+  var btnNec = byId('cookieAcceptNecessary');
+  var btnSettings = byId('cookieSettings');
+  var btnSave = byId('cookieSave');
+
+  if (btnAll) btnAll.addEventListener('click', function () { save({ necessary: true, external_media: true }); hideBanner(); });
+  if (btnNec) btnNec.addEventListener('click', function () { save({ necessary: true, external_media: false }); hideBanner(); });
+  if (btnSettings) btnSettings.addEventListener('click', function () { banner.classList.add('is-open'); });
+  if (btnSave) btnSave.addEventListener('click', function () {
+    save({ necessary: true, external_media: optMedia ? optMedia.checked : false }); hideBanner();
+  });
+
+  // Re-open from footer "Cookie-Einstellungen"
+  document.querySelectorAll('#cookieSettingsBtn, .js-cookie-settings').forEach(function (b) {
+    b.addEventListener('click', function (e) { e.preventDefault(); stored = read(); showBanner(true); });
+  });
+
+  // Per-embed "laden" buttons inside a consent gate
+  document.querySelectorAll('.js-load-embed').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var gate = b.closest('.consent-gate');
+      if (!gate) return;
+      var iframe = gate.querySelector('iframe');
+      if (iframe && !iframe.src) iframe.src = gate.getAttribute('data-src');
+      gate.classList.add('is-loaded');
+    });
+  });
 })();
