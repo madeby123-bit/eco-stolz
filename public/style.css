@@ -549,3 +549,11 @@ body::after {
 
 @media (max-width: 900px) { .cert-grid { grid-template-columns: repeat(2, 1fr); } .cert-checks { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 520px) { .cert-grid { grid-template-columns: 1fr; } .cert-checks { grid-template-columns: 1fr; } }
+
+/* Studien – Foto-Dokumentation */
+.studie-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem; }
+.studie-fig { background: var(--white); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; margin: 0; }
+.studie-fig img { width: 100%; aspect-ratio: 4 / 3; object-fit: contain; background: #eef2f5; display: block; }
+.studie-fig figcaption { padding: 1rem 1.2rem; font-size: 0.92rem; color: var(--ink-2); }
+.studie-fig figcaption strong { display: block; color: var(--teal); margin-bottom: 0.15rem; }
+@media (max-width: 760px) { .studie-grid { grid-template-columns: 1fr; } }
