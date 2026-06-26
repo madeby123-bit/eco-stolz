@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/style.css?v=20260643" />
+  <link rel="stylesheet" href="/style.css?v=20260644" />
 
   <script type="application/ld+json">
   {
@@ -82,6 +82,19 @@
         <a href="/kontakt" class="nav__link">Kontakt</a>
         <a href="/kontakt#anfrage" class="nav__link nav__link--cta">Anfrage senden</a>
       </nav>
+      <div class="lang notranslate" id="langSwitch" translate="no">
+        <button type="button" class="lang__btn" id="langBtn" aria-haspopup="true" aria-expanded="false" aria-label="Sprache wählen">
+          <svg class="lang__globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.7 2.6 15.3 0 18M12 3c-2.6 2.7-2.6 15.3 0 18"/></svg>
+          <span class="lang__code">DE</span>
+          <span class="lang__caret" aria-hidden="true">▾</span>
+        </button>
+        <div class="lang__menu" role="menu" aria-label="Sprache wählen">
+          <button type="button" role="menuitem" data-lang="de" lang="de"><span class="lang__flag">🇩🇪</span> Deutsch</button>
+          <button type="button" role="menuitem" data-lang="en" lang="en"><span class="lang__flag">🇬🇧</span> English</button>
+          <button type="button" role="menuitem" data-lang="it" lang="it"><span class="lang__flag">🇮🇹</span> Italiano</button>
+          <button type="button" role="menuitem" data-lang="es" lang="es"><span class="lang__flag">🇪🇸</span> Español</button>
+        </div>
+      </div>
       <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen">
         <span></span><span></span><span></span>
       </button>
@@ -153,6 +166,9 @@
 
       <h2>Google Fonts</h2>
       <p>Zur einheitlichen Darstellung von Schriftarten nutzt diese Website Web Fonts von Google. Beim Aufruf einer Seite lädt Ihr Browser die benötigten Schriftarten von Google-Servern; dabei kann Ihre IP-Adresse an Google übertragen werden. Rechtsgrundlage ist unser berechtigtes Interesse an einer ansprechenden und einheitlichen Darstellung unseres Onlineangebots (Art. 6 Abs. 1 lit. f DSGVO). Anbieter ist Google Ireland Limited. Weitere Informationen: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.</p>
+
+      <h2>Sprachumschalter / Google Übersetzer</h2>
+      <p>Diese Website bietet einen Sprachumschalter (Deutsch, Englisch, Italienisch, Spanisch). Die Übersetzung wird über den Dienst Google Übersetzer (Google Translate, Anbieter: Google Ireland Limited) bereitgestellt und <strong>erst dann geladen, wenn Sie aktiv eine andere Sprache als Deutsch auswählen</strong>. Dabei werden Inhalte der aufgerufenen Seite sowie technische Daten (u.&nbsp;a. Ihre IP-Adresse) an Google übertragen und möglicherweise in den USA verarbeitet. Rechtsgrundlage ist Ihre Einwilligung durch die aktive Sprachwahl (Art. 6 Abs. 1 lit. a DSGVO). Wählen Sie wieder „Deutsch", wird die Übersetzung deaktiviert. Weitere Informationen: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.</p>
 
       <h2>Hosting &amp; Server-Logfiles</h2>
       <p>Wir hosten die Inhalte unserer Website bei einem spezialisierten Anbieter (Hostinger). Beim Besuch der Website erhebt der Provider automatisch Informationen in sogenannten Server-Logfiles, die Ihr Browser übermittelt, etwa Browsertyp und -version, verwendetes Betriebssystem, Referrer-URL, Hostname des zugreifenden Rechners, Uhrzeit der Serveranfrage und IP-Adresse. Diese Daten werden nicht mit anderen Datenquellen zusammengeführt und dienen der technischen Sicherheit und Fehleranalyse. Rechtsgrundlage ist unser berechtigtes Interesse am sicheren Betrieb (Art. 6 Abs. 1 lit. f DSGVO). Der Anbieter verarbeitet diese Daten als Auftragsverarbeiter auf Grundlage eines Auftragsverarbeitungsvertrags.</p>
@@ -255,6 +271,6 @@
     </div>
   </div>
 
-  <script src="/main.js?v=20260643"></script>
+  <script src="/main.js?v=20260644"></script>
 </body>
 </html>

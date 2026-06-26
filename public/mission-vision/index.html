@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/style.css?v=20260643" />
+  <link rel="stylesheet" href="/style.css?v=20260644" />
 
   <script type="application/ld+json">
   {
@@ -101,6 +101,19 @@
               <a href="/kontakt" class="nav__link">Kontakt</a>
         <a href="/kontakt#anfrage" class="nav__link nav__link--cta">Anfrage senden</a>
       </nav>
+      <div class="lang notranslate" id="langSwitch" translate="no">
+        <button type="button" class="lang__btn" id="langBtn" aria-haspopup="true" aria-expanded="false" aria-label="Sprache wählen">
+          <svg class="lang__globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.7 2.6 15.3 0 18M12 3c-2.6 2.7-2.6 15.3 0 18"/></svg>
+          <span class="lang__code">DE</span>
+          <span class="lang__caret" aria-hidden="true">▾</span>
+        </button>
+        <div class="lang__menu" role="menu" aria-label="Sprache wählen">
+          <button type="button" role="menuitem" data-lang="de" lang="de"><span class="lang__flag">🇩🇪</span> Deutsch</button>
+          <button type="button" role="menuitem" data-lang="en" lang="en"><span class="lang__flag">🇬🇧</span> English</button>
+          <button type="button" role="menuitem" data-lang="it" lang="it"><span class="lang__flag">🇮🇹</span> Italiano</button>
+          <button type="button" role="menuitem" data-lang="es" lang="es"><span class="lang__flag">🇪🇸</span> Español</button>
+        </div>
+      </div>
       <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen">
         <span></span><span></span><span></span>
       </button>
@@ -353,6 +366,6 @@
     </div>
   </div>
 
-  <script src="/main.js?v=20260643"></script>
+  <script src="/main.js?v=20260644"></script>
 </body>
 </html>

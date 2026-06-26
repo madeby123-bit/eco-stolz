@@ -200,3 +200,81 @@
     });
   });
 })();
+
+/* =========================================================
+   Eco Stolz – Sprachumschalter (DE/EN/IT/ES)
+   Lazy & datensparsam: Google-Übersetzer lädt nur bei aktiver Übersetzung.
+   ========================================================= */
+(function () {
+  'use strict';
+  var LANGS = { de: 'Deutsch', en: 'English', it: 'Italiano', es: 'Español' };
+  var sw = document.getElementById('langSwitch');
+  if (!sw) return;
+  var btn = document.getElementById('langBtn');
+  var codeEl = sw.querySelector('.lang__code');
+  var menu = sw.querySelector('.lang__menu');
+
+  function getCookie(name) {
+    var m = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+    return m ? decodeURIComponent(m.pop()) : '';
+  }
+  function host() { return location.hostname.replace(/^www\./, ''); }
+  function currentLang() {
+    var c = getCookie('googtrans');
+    if (c) { var p = c.split('/'); var t = p[p.length - 1]; if (LANGS[t]) return t; }
+    return 'de';
+  }
+  function setLabel(l) {
+    if (codeEl) codeEl.textContent = l.toUpperCase();
+    btn.setAttribute('aria-label', 'Sprache wählen – aktuell ' + LANGS[l]);
+    menu.querySelectorAll('[data-lang]').forEach(function (b) {
+      b.setAttribute('aria-current', b.dataset.lang === l ? 'true' : 'false');
+    });
+  }
+  function choose(l) {
+    var expire = ';path=/';
+    if (l === 'de') {
+      var del = '=;path=/;expires=Thu, 01 Jan 1970 00:00:00 GMT';
+      document.cookie = 'googtrans' + del;
+      document.cookie = 'googtrans' + del.replace(';path=/', ';path=/;domain=.' + host());
+    } else {
+      var val = '/de/' + l;
+      document.cookie = 'googtrans=' + val + expire;
+      document.cookie = 'googtrans=' + val + expire + ';domain=.' + host();
+    }
+    location.reload();
+  }
+
+  btn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var open = sw.classList.toggle('is-open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  document.addEventListener('click', function () {
+    sw.classList.remove('is-open'); btn.setAttribute('aria-expanded', 'false');
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') sw.classList.remove('is-open'); });
+  menu.querySelectorAll('[data-lang]').forEach(function (b) {
+    b.addEventListener('click', function (e) { e.stopPropagation(); choose(b.dataset.lang); });
+  });
+
+  var cur = currentLang();
+  setLabel(cur);
+
+  // Nur wenn aktiv übersetzt: Google-Übersetzer laden und Übersetzung anwenden
+  if (cur !== 'de') {
+    if (!document.getElementById('google_translate_element')) {
+      var d = document.createElement('div'); d.id = 'google_translate_element'; document.body.appendChild(d);
+    }
+    window.googleTranslateElementInit = function () {
+      new google.translate.TranslateElement(
+        { pageLanguage: 'de', includedLanguages: 'de,en,it,es', autoDisplay: false },
+        'google_translate_element'
+      );
+    };
+    var s = document.createElement('script');
+    s.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    s.async = true;
+    document.body.appendChild(s);
+  }
+})();

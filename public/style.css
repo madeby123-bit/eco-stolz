@@ -666,3 +666,31 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .cookie.is-open #cookieSettings { display: none; }
 
 .consent-gate:not(.is-loaded) iframe { display: none; }
+
+/* ===== Sprachumschalter ===== */
+.header__inner { justify-content: flex-start; gap: 1.1rem; }
+.header__logo { margin-right: auto; }
+.lang { position: relative; flex: none; }
+.lang__btn { display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.26); color: #fff; padding: 0.45rem 0.75rem; border-radius: 999px;
+  cursor: pointer; font: inherit; font-size: 0.85rem; font-weight: 600; line-height: 1; transition: background .2s, border-color .2s; }
+.lang__btn:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,255,255,0.4); }
+.lang__globe { width: 16px; height: 16px; flex: none; }
+.lang__caret { font-size: 0.7em; opacity: 0.85; }
+.lang__menu { position: absolute; right: 0; top: calc(100% + 10px); min-width: 168px; background: #fff;
+  border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 20px 46px -14px rgba(24,33,62,0.45);
+  padding: 0.4rem; display: none; flex-direction: column; z-index: 1200; }
+.lang.is-open .lang__menu { display: flex; }
+.lang__menu button { display: flex; align-items: center; gap: 0.6rem; text-align: left; background: none; border: 0;
+  padding: 0.62rem 0.8rem; border-radius: 9px; cursor: pointer; font: inherit; font-size: 0.92rem; color: var(--ink); transition: background .15s; }
+.lang__menu button:hover { background: rgba(239,121,62,0.1); }
+.lang__menu button[aria-current="true"] { color: var(--teal); font-weight: 700; }
+.lang__flag { font-size: 1.05rem; line-height: 1; }
+@media (max-width: 1080px) { .lang { margin-left: auto; } }
+
+/* Google-Translate-Standard-UI ausblenden */
+.goog-te-banner-frame, .goog-te-banner-frame.skiptranslate, .goog-te-gadget-icon { display: none !important; }
+#google_translate_element { display: none !important; }
+body { top: 0 !important; position: static !important; }
+.goog-tooltip, .goog-tooltip:hover { display: none !important; }
+.goog-text-highlight { background: none !important; box-shadow: none !important; }
