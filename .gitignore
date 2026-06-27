@@ -6,3 +6,4 @@ npm-debug.log*
 # Lokale Dev-Helfer (nicht fürs Deployment)
 serve.py
 .claude/
+WAS IST DAS.txt
