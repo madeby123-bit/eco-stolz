@@ -694,3 +694,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 body { top: 0 !important; position: static !important; }
 .goog-tooltip, .goog-tooltip:hover { display: none !important; }
 .goog-text-highlight { background: none !important; box-shadow: none !important; }
+
+/* Footer-Credit (Soul Marketing) */
+.footer__credit-link { color: rgba(255,255,255,0.72); text-decoration: underline; transition: color .2s; }
+.footer__credit-link:hover { color: var(--aqua); }
