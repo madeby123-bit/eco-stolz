@@ -712,3 +712,16 @@ body { top: 0 !important; position: static !important; }
 .cert-listcard li:last-child { margin-bottom: 0; }
 .cert-listcard li::before { content: "✓"; position: absolute; left: 0; top: 0; color: var(--aqua); font-weight: 700; }
 @media (max-width: 900px) { .cert-lists { grid-template-columns: 1fr; } }
+
+/* ===== Zertifikate: überlappender Scan-Stapel (Datum verdeckt) ===== */
+.cert-pile { position: relative; width: min(600px, 94%); margin: 0 auto clamp(2.5rem,5vw,4rem); aspect-ratio: 1 / 0.92; }
+.cert-pile img { position: absolute; width: 48%; border-radius: 5px; border: 6px solid #fff; background: #fff;
+  box-shadow: 0 22px 44px -18px rgba(0,0,0,0.55); }
+.cert-pile img:nth-child(1) { left: 4%;  top: 3%;  transform: rotate(-7deg); z-index: 1; }
+.cert-pile img:nth-child(2) { left: 29%; top: 0;   transform: rotate(4deg);  z-index: 2; }
+.cert-pile img:nth-child(3) { left: 52%; top: 4%;  transform: rotate(-4deg); z-index: 3; }
+.cert-pile img:nth-child(4) { left: 15%; top: 24%; transform: rotate(6deg);  z-index: 4; }
+.cert-pile img:nth-child(5) { left: 40%; top: 28%; transform: rotate(-5deg); z-index: 5; }
+.cert-pile img:nth-child(6) { left: 2%;  top: 48%; transform: rotate(3deg);  z-index: 6; }
+.cert-pile img:nth-child(7) { left: 28%; top: 52%; transform: rotate(-6deg); z-index: 7; }
+.cert-pile img:nth-child(8) { left: 51%; top: 46%; transform: rotate(5deg);  z-index: 8; }
