@@ -290,10 +290,11 @@ h3 { font-size: clamp(1.3rem, 2.4vw, 1.7rem); }
 
 /* ---------- Footer ---------- */
 .footer { background: var(--ink); color: rgba(255,255,255,0.72); padding: clamp(3rem, 6vw, 5rem) 0 1.5rem; }
-.footer__inner { display: grid; grid-template-columns: 1.4fr 2fr; gap: 3rem; }
+.footer__inner { display: grid; grid-template-columns: 1fr 2.7fr; gap: 3rem; }
 .footer__logo { height: 38px; margin-bottom: 1rem; }
 .footer__brand p { max-width: 36ch; font-size: 0.95rem; }
-.footer__cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.footer__cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem 1.8rem; }
+.footer__cols h3 { font-family: var(--sans); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.11em; color: var(--aqua); font-weight: 700; margin-bottom: 0.9rem; }
 .footer__cols h4 { font-family: var(--sans); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--aqua); margin-bottom: 0.9rem; }
 .footer__cols a, .footer__cols span { display: block; font-size: 0.92rem; color: rgba(255,255,255,0.7); margin-bottom: 0.5rem; transition: color 0.25s; }
 .footer__cols a:hover { color: #fff; }
@@ -417,6 +418,9 @@ html.js .in [data-zoom], html.js [data-zoom].in { transform: scale(1); }
     z-index: 99; overflow-y: auto;
   }
   .nav.open { transform: translateX(0); }
+  /* backdrop-filter macht den Header zum Bezugsrahmen und laesst das fixierte Menue zusammenschrumpfen -> auf Mobil abschalten */
+  .header, .header.scrolled { -webkit-backdrop-filter: none; backdrop-filter: none; }
+  .header.scrolled { background: rgba(24, 33, 62, 0.97); }
   .nav__link { font-size: 1.08rem; }
   .nav-toggle { display: flex; z-index: 100; }
   .nav__item--has-sub { flex-direction: column; align-items: flex-start; width: 100%; }
