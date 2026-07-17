@@ -702,3 +702,13 @@ body { top: 0 !important; position: static !important; }
 /* Footer-Credit (Soul Marketing) */
 .footer__credit-link { color: rgba(255,255,255,0.72); text-decoration: underline; transition: color .2s; }
 .footer__credit-link:hover { color: var(--aqua); }
+
+/* ===== Zertifikate & Urkunden: Liste (ohne Datum) ===== */
+.cert-lists { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; align-items: start; }
+.cert-listcard { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 1.7rem 1.8rem; box-shadow: 0 24px 60px -34px rgba(24,33,62,0.4); }
+.cert-listcard h3 { font-family: var(--sans); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--aqua); font-weight: 700; margin-bottom: 1.1rem; }
+.cert-listcard ul { list-style: none; }
+.cert-listcard li { position: relative; padding-left: 1.6rem; margin-bottom: 0.72rem; color: var(--ink); font-size: 0.96rem; line-height: 1.5; }
+.cert-listcard li:last-child { margin-bottom: 0; }
+.cert-listcard li::before { content: "✓"; position: absolute; left: 0; top: 0; color: var(--aqua); font-weight: 700; }
+@media (max-width: 900px) { .cert-lists { grid-template-columns: 1fr; } }
