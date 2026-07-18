@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/style.css?v=20260650" />
+  <link rel="stylesheet" href="/style.css?v=20260651" />
 
   <script type="application/ld+json">
   {
@@ -180,58 +180,47 @@
     </div>
   </section>
 
-  <!-- ZERTIFIKATE & URKUNDEN (Liste) -->
-  <section class="section products" id="galerie" aria-labelledby="gallery-title">
-    <div class="container">
-      <div class="section-head">
+  <!-- ZERTIFIKATE & URKUNDEN (Original-Layout) -->
+  <section class="section" id="galerie" aria-labelledby="gallery-title">
+    <div class="container cert-layout">
+      <div class="cert-textcol">
         <p class="eyebrow reveal" data-reveal>Zertifikate &amp; Urkunden</p>
-        <h2 class="reveal" data-reveal data-delay="80" id="gallery-title">Geprüft und ausgezeichnet.</h2>
-        <p class="lead lead--center reveal" data-reveal data-delay="160">
-          Patentiert und von unabhängigen Instituten und Universitäten in ganz Europa geprüft. Ein Auszug unserer Originaldokumente.
-        </p>
+        <h2 class="reveal" data-reveal data-delay="60" id="gallery-title" style="margin-bottom:1.5rem;">Geprüft und ausgezeichnet.</h2>
+        <ul class="cert-simplelist reveal" data-reveal data-delay="120">
+          <li>OEVE (ÖVE)</li>
+          <li>EG Konformität</li>
+          <li>TGM Staatliche Versuchsanstalt für Elektrotechnik und Elektronik, Wien</li>
+          <li>CE Prüfzeichen</li>
+          <li>VDE Prüfzeichen</li>
+          <li>EMV Elektromagnetische Verträglichkeit</li>
+          <li>DVGW Prüfzeichen (Durchflussmengenprüfung)</li>
+          <li>AFK Druckbeständigkeitsprüfung</li>
+          <li>KTW Kunststoff im Trinkwasser (Dichtung)</li>
+          <li>CESI Milano Magnetverträglichkeit</li>
+          <li>Versuchsanstalt der Radiotechnik</li>
+          <li>Laboruntersuchung Universität Salzburg, positive Einflüsse auf den Energiehaushalt des Menschen</li>
+        </ul>
+        <h3>Funktionstüchtigkeitszertifikate</h3>
+        <ul class="cert-simplelist reveal" data-reveal>
+          <li>Institut für Radiochemie, Innsbruck (Univ.-Prof. Dr. Ortwin Bobleter)</li>
+          <li>Universität Padua</li>
+          <li>NEYPRIC Laboratoire, Grenoble</li>
+          <li>CSTB, Zentrum für Wohnbau, Paris (Bericht Nr. 34g64)</li>
+        </ul>
+        <h3>Bakteriologische Untersuchung</h3>
+        <ul class="cert-simplelist reveal" data-reveal>
+          <li>Institut für Hygiene der Universität Innsbruck (Dr. Manfred Dierich)</li>
+        </ul>
       </div>
-      <div class="cert-pile reveal" data-reveal aria-label="Zertifikate und Urkunden von Eco Stolz, gestapelt">
+      <div class="cert-cascade reveal" data-reveal aria-label="Original-Zertifikate und Urkunden von Eco Stolz, gestapelt">
         <img src="/assets/zert-patent.webp" alt="Patenturkunde TESL® II" loading="lazy" />
-        <img src="/assets/zert-oeve.webp" alt="ÖVE Prüfzertifikat" loading="lazy" />
-        <img src="/assets/zert-tgm.webp" alt="TGM Wien Versuchsanstalt" loading="lazy" />
-        <img src="/assets/zert-cesi.webp" alt="CESI Milano Zertifikat" loading="lazy" />
         <img src="/assets/zert-eg.webp" alt="EG-Konformitätserklärung" loading="lazy" />
+        <img src="/assets/zert-tgm.webp" alt="TGM Wien Versuchsanstalt" loading="lazy" />
+        <img src="/assets/zert-cesi.webp" alt="CESI Milano Prüfbericht" loading="lazy" />
+        <img src="/assets/zert-oeve.webp" alt="ÖVE Prüfzertifikat" loading="lazy" />
         <img src="/assets/zert-padua1.webp" alt="Universität Padua, Bericht 1" loading="lazy" />
         <img src="/assets/zert-padua2.webp" alt="Universität Padua, Bericht 2" loading="lazy" />
         <img src="/assets/zert-bakterio.webp" alt="Bakteriologische Untersuchung, Universität Innsbruck" loading="lazy" />
-      </div>
-      <div class="cert-lists">
-        <div class="cert-listcard reveal" data-reveal>
-          <h3>Zertifikate &amp; Prüfungen</h3>
-          <ul>
-            <li>EG-Konformität</li>
-            <li>TGM Wien, Staatliche Versuchsanstalt für Elektrotechnik und Elektronik</li>
-            <li>CE-Prüfzeichen</li>
-            <li>VDE-Prüfzeichen</li>
-            <li>EMV, Elektromagnetische Verträglichkeit</li>
-            <li>DVGW-Prüfzeichen, Durchflussmengenprüfung</li>
-            <li>AFK, Druckbeständigkeitsprüfung</li>
-            <li>KTW, Kunststoff im Trinkwasser (Dichtung)</li>
-            <li>CESI Milano, Magnetverträglichkeit</li>
-            <li>Versuchsanstalt der Radiotechnik</li>
-            <li>Universität Salzburg, Laboruntersuchung Energiehaushalt</li>
-          </ul>
-        </div>
-        <div class="cert-listcard reveal" data-reveal data-delay="100">
-          <h3>Funktionstüchtigkeitszertifikate</h3>
-          <ul>
-            <li>Institut für Radiochemie, Innsbruck (Univ.-Prof. Dr. Ortwin Bobleter)</li>
-            <li>Universität Padua</li>
-            <li>NEYPRIC Laboratoire, Grenoble</li>
-            <li>CSTB, Zentrum für Wohnbau, Paris (Bericht Nr. 34g64)</li>
-          </ul>
-        </div>
-        <div class="cert-listcard reveal" data-reveal data-delay="200">
-          <h3>Bakteriologische Untersuchung</h3>
-          <ul>
-            <li>Institut für Hygiene der Universität Innsbruck (Dr. Manfred Dierich)</li>
-          </ul>
-        </div>
       </div>
     </div>
   </section>
@@ -361,6 +350,6 @@
     </div>
   </div>
 
-  <script src="/main.js?v=20260650"></script>
+  <script src="/main.js?v=20260651"></script>
 </body>
 </html>
