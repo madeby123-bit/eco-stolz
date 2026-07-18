@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/style.css?v=20260652" />
+  <link rel="stylesheet" href="/style.css?v=20260653" />
   <script type="application/ld+json">
   { "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://www.eco-stolz.com/" },
@@ -190,6 +190,17 @@
           <div class="cform__field"><label for="b-firma">Firma</label><input type="text" id="b-firma" name="Firma" autocomplete="organization" /></div>
           <div class="cform__field"><label for="b-email">E-Mail <span class="req">*</span></label><input type="email" id="b-email" name="E-Mail" autocomplete="email" placeholder="name@beispiel.at" required /></div>
           <div class="cform__field"><label for="b-betreff">Betreff <span class="req">*</span></label><input type="text" id="b-betreff" name="Betreff" value="Bewerbung: Partner / Verkaufsagent für B2B-Kunden" required /></div>
+          <fieldset class="cform__field" style="border:0;padding:0;margin:0;">
+            <legend class="cform__legend">Wofür möchtest du dich bewerben? <span style="font-weight:400;color:rgba(24,33,62,0.55);">(Mehrfachauswahl möglich)</span></legend>
+            <div class="cform__checks">
+              <label class="cform__check"><input type="checkbox" name="Anwendungsfall" value="Social-Media-Setter &amp; Closer (Online-Vertrieb)" /><span>Social-Media-Setter &amp; Closer (Online-Vertrieb)</span></label>
+              <label class="cform__check"><input type="checkbox" name="Anwendungsfall" value="Social-Selling &amp; Online-Verkaufs-Partner" /><span>Social-Selling &amp; Online-Verkaufs-Partner</span></label>
+              <label class="cform__check"><input type="checkbox" name="Anwendungsfall" value="Handelsvertreter/in, regional oder international" /><span>Handelsvertreter/in, regional oder international</span></label>
+              <label class="cform__check"><input type="checkbox" name="Anwendungsfall" value="Multi-Line / Mehrfirmen-Partner" /><span>Multi-Line / Mehrfirmen-Partner</span></label>
+              <label class="cform__check"><input type="checkbox" name="Anwendungsfall" value="Partner / Verkaufsagent für B2B-Kunden" checked /><span>Partner / Verkaufsagent für B2B-Kunden</span></label>
+              <label class="cform__check"><input type="checkbox" name="Anwendungsfall" value="Initiativbewerbung" /><span>Initiativbewerbung</span></label>
+            </div>
+          </fieldset>
           <div class="cform__field"><label for="b-nachricht">Nachricht <span class="req">*</span></label><textarea id="b-nachricht" name="Nachricht" placeholder="Erzähl uns kurz von dir und warum du zu uns passt …" required></textarea></div>
           <div class="cform__field"><label for="b-datei">Datei-Upload (Lebenslauf, Unterlagen)</label><input type="file" id="b-datei" name="Anhang" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" /></div>
           <div class="cform__actions">
@@ -276,6 +287,6 @@
     </div>
   </div>
 
-  <script src="/main.js?v=20260652"></script>
+  <script src="/main.js?v=20260653"></script>
 </body>
 </html>
