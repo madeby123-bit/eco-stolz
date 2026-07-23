@@ -507,8 +507,8 @@ body::after {
 .specs { background: var(--ink); color: #fff; padding: clamp(2.5rem, 5vw, 3.5rem) 0; border-top: 1px solid rgba(255,255,255,0.07); }
 .specs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.1rem; }
 .spec { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 14px; padding: 1.5rem 1.4rem; }
-.spec__label { font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--aqua); font-weight: 600; }
-.spec__value { font-family: var(--serif); font-size: clamp(1.15rem, 1.7vw, 1.5rem); margin-top: 0.4rem; line-height: 1.15; }
+.spec__label { display: block; font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--aqua); font-weight: 600; }
+.spec__value { display: block; font-family: var(--serif); font-size: clamp(1.15rem, 1.7vw, 1.5rem); margin-top: 0.4rem; line-height: 1.15; }
 
 .models-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
 .model-card { display: block; background: var(--white); border: 1px solid var(--line); border-radius: var(--r); padding: 1.8rem; transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease); }
