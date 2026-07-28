@@ -212,14 +212,9 @@
       if (gate) gate.style.display = 'none';
     }
 
-    if (sessionStorage.getItem('docUnlocked') === '1') {
-      unlockDocs();
-    }
-
     form.addEventListener('submit', function(e) {
       e.preventDefault();
       if (input.value === 'ecostolz!') {
-        sessionStorage.setItem('docUnlocked', '1');
         unlockDocs();
       } else {
         error.style.display = 'block';
