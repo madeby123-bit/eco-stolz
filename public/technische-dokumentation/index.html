@@ -154,40 +154,40 @@
         </p>
       </div>
 
-      <div id="docPasswordGate" style="max-width:420px;margin:0 auto 2rem;text-align:center;">
-        <p style="margin-bottom:1rem;color:var(--muted);">Diese Dokumente sind passwortgeschützt. Bitte gib das Passwort ein, um sie herunterzuladen.</p>
-        <form id="docPasswordForm" style="display:flex;gap:0.6rem;justify-content:center;flex-wrap:wrap;">
-          <input type="password" id="docPasswordInput" placeholder="Passwort" autocomplete="off" style="padding:0.7rem 1rem;border:1px solid var(--line);border-radius:var(--r);font-family:var(--sans);flex:1;min-width:180px;" />
-          <button type="submit" class="btn btn--primary">Freischalten</button>
-        </form>
-        <p id="docPasswordError" style="color:#c0392b;margin-top:0.8rem;display:none;">Falsches Passwort. Bitte versuche es erneut.</p>
-      </div>
-
-      <div class="benefits__grid" id="docDownloadsGrid" style="display:none;">
+      <div class="benefits__grid" id="docDownloadsGrid">
         <div class="benefit-card reveal" data-reveal>
           <span class="b-tag">01</span>
           <h3>Montageanleitung</h3>
           <p>Die vollständige Anleitung zur fachgerechten Montage von TESL® II.</p>
-          <p style="margin-top:1rem;"><a href="#" class="btn btn--ghost" data-doc="tesl-montageanleitung.pdf" download>PDF herunterladen</a></p>
+          <p style="margin-top:1rem;"><a href="#" class="btn btn--ghost doc-link" data-doc="tesl-montageanleitung.pdf" style="pointer-events:none;opacity:0.5;cursor:not-allowed;">PDF herunterladen</a></p>
         </div>
         <div class="benefit-card reveal" data-reveal data-delay="100">
           <span class="b-tag">02</span>
           <h3>Abbildungen zur Montage</h3>
           <p>Bebilderte Schritt-für-Schritt-Übersicht als Ergänzung zur Montageanleitung.</p>
-          <p style="margin-top:1rem;"><a href="#" class="btn btn--ghost" data-doc="tesl-montageanleitung-abbildungen.pdf" download>PDF herunterladen</a></p>
+          <p style="margin-top:1rem;"><a href="#" class="btn btn--ghost doc-link" data-doc="tesl-montageanleitung-abbildungen.pdf" style="pointer-events:none;opacity:0.5;cursor:not-allowed;">PDF herunterladen</a></p>
         </div>
         <div class="benefit-card reveal" data-reveal data-delay="200">
           <span class="b-tag">03</span>
           <h3>Empfehlungen zur Überprüfung</h3>
           <p>So könnt ihr die Funktion und Wirkung von TESL® II einfach kontrollieren.</p>
-          <p style="margin-top:1rem;"><a href="#" class="btn btn--ghost" data-doc="tesl-pruefungsmoeglichkeiten.pdf" download>PDF herunterladen</a></p>
+          <p style="margin-top:1rem;"><a href="#" class="btn btn--ghost doc-link" data-doc="tesl-pruefungsmoeglichkeiten.pdf" style="pointer-events:none;opacity:0.5;cursor:not-allowed;">PDF herunterladen</a></p>
         </div>
         <div class="benefit-card reveal" data-reveal data-delay="300">
           <span class="b-tag">04</span>
           <h3>Prüfzertifikate</h3>
           <p>Die vollständige Liste aller unabhängigen Prüfzertifikate von TESL® II.</p>
-          <p style="margin-top:1rem;"><a href="#" class="btn btn--ghost" data-doc="tesl-pruefzertifikate.pdf" download>PDF herunterladen</a></p>
+          <p style="margin-top:1rem;"><a href="#" class="btn btn--ghost doc-link" data-doc="tesl-pruefzertifikate.pdf" style="pointer-events:none;opacity:0.5;cursor:not-allowed;">PDF herunterladen</a></p>
         </div>
+      </div>
+
+      <div id="docPasswordGate" style="max-width:420px;margin:2.5rem auto 0;text-align:center;">
+        <p style="margin-bottom:1rem;color:var(--muted);">Die Dokumente sind passwortgeschützt. Bitte gib das Passwort ein, um sie herunterzuladen.</p>
+        <form id="docPasswordForm" style="display:flex;gap:0.6rem;justify-content:center;flex-wrap:wrap;">
+          <input type="password" id="docPasswordInput" placeholder="Passwort" autocomplete="off" style="padding:0.7rem 1rem;border:1px solid var(--line);border-radius:var(--r);font-family:var(--sans);flex:1;min-width:180px;" />
+          <button type="submit" class="btn btn--primary">Freischalten</button>
+        </form>
+        <p id="docPasswordError" style="color:#c0392b;margin-top:0.8rem;display:none;">Falsches Passwort. Bitte versuche es erneut.</p>
       </div>
     </div>
   </section>
@@ -197,17 +197,19 @@
     var form = document.getElementById('docPasswordForm');
     var input = document.getElementById('docPasswordInput');
     var error = document.getElementById('docPasswordError');
-    var gate = document.getElementById('docPasswordGate');
-    var grid = document.getElementById('docDownloadsGrid');
+    var links = document.querySelectorAll('.doc-link');
     if (!form) return;
 
     function unlockDocs() {
-      gate.style.display = 'none';
-      grid.style.display = 'grid';
-      var links = grid.querySelectorAll('a[data-doc]');
       for (var i = 0; i < links.length; i++) {
         links[i].href = '/assets/' + links[i].getAttribute('data-doc');
+        links[i].setAttribute('download', '');
+        links[i].style.pointerEvents = 'auto';
+        links[i].style.opacity = '1';
+        links[i].style.cursor = 'pointer';
       }
+      var gate = document.getElementById('docPasswordGate');
+      if (gate) gate.style.display = 'none';
     }
 
     if (sessionStorage.getItem('docUnlocked') === '1') {
