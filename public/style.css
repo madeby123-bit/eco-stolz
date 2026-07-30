@@ -747,3 +747,9 @@ body { top: 0 !important; position: static !important; }
 /* ===== Bewerbungsformular: Datei-Upload ===== */
 .cform input[type="file"] { width: 100%; padding: 0.8rem 1rem; border: 1px dashed var(--line); border-radius: 14px; background: #fff; font: inherit; color: var(--ink); cursor: pointer; }
 .cform input[type="file"]::file-selector-button { font: inherit; font-weight: 600; margin-right: 0.9rem; padding: 0.5rem 1rem; border: 0; border-radius: 999px; background: var(--grad-aqua); color: #18213E; cursor: pointer; }
+
+/* ===== Formular: Datenschutz-Einwilligung (Pflicht-Checkbox) ===== */
+.cform__consent { display: flex; align-items: flex-start; gap: 0.65rem; margin: 0.2rem 0 0.4rem; font-size: 0.92rem; line-height: 1.5; color: var(--ink); cursor: pointer; }
+.cform__consent input[type="checkbox"] { flex: 0 0 auto; width: 20px; height: 20px; margin-top: 0.15rem; accent-color: var(--orange); cursor: pointer; }
+.cform__consent a { color: var(--orange); text-decoration: underline; }
+.cform__consent a:hover { text-decoration: none; }
