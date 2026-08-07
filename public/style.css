@@ -131,7 +131,7 @@ h3 { font-size: clamp(1.3rem, 2.4vw, 1.7rem); }
 .btn--ghost-light:hover { background: #fff; color: var(--ink); border-color: #fff; }
 
 /* ---------- HERO ---------- */
-.hero { position: relative; height: 100vh; min-height: 640px; display: flex; align-items: center; overflow: hidden; }
+.hero { position: relative; height: 100vh; min-height: 640px; display: flex; align-items: center; overflow: hidden; padding-top: 90px; box-sizing: border-box; }
 .hero__video {
   position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
   transform: scale(1.05); z-index: 0;
