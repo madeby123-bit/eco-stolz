@@ -134,6 +134,20 @@
   var KEY = 'eco_consent_v1';
   var banner = document.getElementById('cookieBanner');
 
+  // Google Analytics 4 (laedt ausschliesslich nach Einwilligung "Statistik")
+  var GA_ID = 'G-32JJME1431';
+  var gaLoaded = false;
+  function loadGA() {
+    if (gaLoaded) return; gaLoaded = true;
+    var s = document.createElement('script'); s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    window.gtag('config', GA_ID, { anonymize_ip: true });
+  }
+
   function read() {
     try { return JSON.parse(localStorage.getItem(KEY)); } catch (e) { return null; }
   }
@@ -143,6 +157,7 @@
     apply(consent);
   }
   function apply(consent) {
+    if (consent && consent.statistics) { loadGA(); }
     if (consent && consent.external_media) {
       document.querySelectorAll('.consent-gate[data-src]').forEach(function (gate) {
         if (gate.classList.contains('is-loaded')) return;
@@ -160,9 +175,11 @@
   if (!banner) return;
 
   var optMedia = document.getElementById('cookieOptMedia');
+  var optStats = document.getElementById('cookieOptStats');
 
   function showBanner(openSettings) {
     if (stored && optMedia) optMedia.checked = !!stored.external_media;
+    if (stored && optStats) optStats.checked = !!stored.statistics;
     banner.classList.toggle('is-open', !!openSettings);
     banner.classList.add('is-visible');
     banner.removeAttribute('hidden');
@@ -177,11 +194,11 @@
   var btnSettings = byId('cookieSettings');
   var btnSave = byId('cookieSave');
 
-  if (btnAll) btnAll.addEventListener('click', function () { save({ necessary: true, external_media: true }); hideBanner(); });
-  if (btnNec) btnNec.addEventListener('click', function () { save({ necessary: true, external_media: false }); hideBanner(); });
+  if (btnAll) btnAll.addEventListener('click', function () { save({ necessary: true, external_media: true, statistics: true }); hideBanner(); });
+  if (btnNec) btnNec.addEventListener('click', function () { save({ necessary: true, external_media: false, statistics: false }); hideBanner(); });
   if (btnSettings) btnSettings.addEventListener('click', function () { banner.classList.add('is-open'); });
   if (btnSave) btnSave.addEventListener('click', function () {
-    save({ necessary: true, external_media: optMedia ? optMedia.checked : false }); hideBanner();
+    save({ necessary: true, external_media: optMedia ? optMedia.checked : false, statistics: optStats ? optStats.checked : false }); hideBanner();
   });
 
   // Re-open from footer "Cookie-Einstellungen"
