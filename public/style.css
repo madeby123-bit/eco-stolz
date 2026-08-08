@@ -522,14 +522,7 @@ body::after {
 .model-card__badge { position: absolute; top: -0.7rem; right: 1.3rem; background: var(--grad-aqua); color: #fff; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; padding: 0.35rem 0.85rem; border-radius: 999px; box-shadow: 0 8px 20px -8px rgba(239,121,62,0.6); }
 .install-flow { margin-top: 2.6rem; text-align: center; }
 .install-flow__caption { color: var(--muted); font-size: 0.95rem; margin-bottom: 1.6rem; }
-.install-flow__row { display: flex; align-items: center; justify-content: center; gap: 1.2rem; flex-wrap: wrap; }
-.install-flow__step { display: flex; flex-direction: column; align-items: center; gap: 0.8rem; background: var(--white); border: 1px solid var(--line); border-radius: var(--r); padding: 1.4rem 1.2rem; width: 170px; transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease); }
-.install-flow__step:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
-.install-flow__step img { height: 110px; width: 100%; object-fit: contain; }
-.install-flow__step span { font-weight: 600; font-size: 0.85rem; color: var(--ink); }
-.install-flow__step--featured { border-color: var(--teal); box-shadow: 0 20px 50px -30px rgba(239, 121, 62, 0.5); }
-.install-flow__arrow { font-size: 1.6rem; color: var(--teal); font-weight: 600; }
-@media (max-width: 720px) { .install-flow__row { flex-direction: column; } .install-flow__arrow { transform: rotate(90deg); } }
+.install-flow__photo { max-width: 100%; height: auto; border-radius: var(--r); box-shadow: var(--shadow); border: 1px solid var(--line); }
 
 @media (max-width: 880px) {
   .prodhero__grid { grid-template-columns: 1fr; text-align: center; }
