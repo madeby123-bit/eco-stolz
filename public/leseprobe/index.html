@@ -399,7 +399,30 @@
     font-size:0.75rem;
     color:rgba(255,255,255,0.35);
   }
+  .topbar{
+    position:sticky; top:0; z-index:50;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px clamp(20px,5vw,48px);
+    background:var(--ink);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  .topbar__logo{display:flex; align-items:center;}
+  .topbar__logo img{height:26px; display:block;}
+  .topbar__back{
+    font-family:"Inter",system-ui,sans-serif;
+    font-size:0.85rem;
+    color:var(--gold);
+    text-decoration:none;
+    font-weight:600;
+    white-space:nowrap;
+  }
+  .topbar__back:hover{color:var(--gold-2);}
 </style>
+
+<div class="topbar">
+  <a href="/" class="topbar__logo" aria-label="Eco Stolz Startseite"><img src="/assets/logo.webp" alt="Eco Stolz"></a>
+  <a href="/" class="topbar__back">&larr; Zur Startseite</a>
+</div>
 
 <section class="hero">
   <div class="hero-content">
