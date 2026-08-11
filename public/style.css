@@ -320,7 +320,7 @@ html.js .in [data-zoom], html.js [data-zoom].in { transform: scale(1); }
   .products__grid, .testimonials__grid, .family__grid, .footer__inner, .footer__cols, .footer__bottom { grid-template-columns: 1fr; }
   .stats__grid { grid-template-columns: 1fr 1fr; }
   .footer__inner { gap: 2rem; }
-  .hero { height: 92vh; }
+  .hero { height: auto; min-height: 100vh; padding-bottom: 2.5rem; }
   .cta__actions, .hero__actions { justify-content: center; }
 }
 
