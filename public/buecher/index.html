@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/style.css?v=20260730" />
+  <link rel="stylesheet" href="/style.css?v=20260731" />
 
     <script type="application/ld+json">
   {
@@ -296,7 +296,15 @@
   </div>
 
   <script>
-    (function(){document.querySelectorAll('.js-lp').forEach(function(b){b.addEventListener('click',function(){var r=document.getElementById(b.getAttribute('data-buch')==='2'?'buch-2':'buch-1');if(r)r.checked=true;});});})();
+    (function(){
+      document.querySelectorAll('.js-lp').forEach(function(b){b.addEventListener('click',function(){var r=document.getElementById(b.getAttribute('data-buch')==='2'?'buch-2':'buch-1');if(r)r.checked=true;});});
+      function eq(sel){var els=document.querySelectorAll(sel);if(els.length<2)return;var m=0;els.forEach(function(e){e.style.minHeight='';if(e.offsetHeight>m)m=e.offsetHeight;});els.forEach(function(e){e.style.minHeight=m+'px';});}
+      function run(){eq('.book__body h2');eq('.book__sub');eq('.book__meta');}
+      run();
+      window.addEventListener('load',run);
+      if(document.fonts&&document.fonts.ready){document.fonts.ready.then(run);}
+      var t;window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(run,150);});
+    })();
   </script>
   <script src="/main.js?v=20260727"></script>
 </body>

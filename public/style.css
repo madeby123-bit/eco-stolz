@@ -803,3 +803,7 @@ body { top: 0 !important; position: static !important; }
 .cform__label { display: block; font-weight: 600; margin-bottom: 0.4rem; }
 .book-choice { display: block; margin: 0.35rem 0; cursor: pointer; color: var(--ink); }
 .book-choice input { margin-right: 0.55rem; accent-color: var(--teal); }
+
+/* Bücher: Titel/Untertitel per JS gleich hoch; Meta-Zeile + Buttons unten bündig */
+.book__meta { margin-top: auto; }
+.book__actions { margin-top: 0.7rem; }
