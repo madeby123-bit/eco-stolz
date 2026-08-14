@@ -807,3 +807,8 @@ body { top: 0 !important; position: static !important; }
 /* Bücher: Titel/Untertitel per JS gleich hoch; Meta-Zeile + Buttons unten bündig */
 .book__meta { margin-top: auto; }
 .book__actions { margin-top: 0.7rem; }
+
+/* Leseprobe: Inline-Danke-Meldung nach Absenden */
+.lp-success { margin-top: 1.2rem; padding: 1.4rem 1.6rem; border-radius: 16px; background: rgba(239,121,62,0.10); border: 1px solid var(--line); }
+.lp-success h3 { margin: 0 0 0.4rem; }
+.lp-success p { margin: 0; color: rgba(24,33,62,0.75); }
