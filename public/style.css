@@ -777,3 +777,15 @@ body { top: 0 !important; position: static !important; }
 .book-optin { margin-top: 2.8rem; padding: 2rem; border: 1px solid var(--line); border-radius: 20px; background: linear-gradient(160deg, rgba(239,121,62,0.06), rgba(24,33,62,0.04)); }
 .book-optin h2 { margin-top: 0; }
 .book-optin__form { margin-top: 1.2rem; }
+
+
+/* ===== Leseprobe-Seite ===== */
+.leseprobe-hero { display: grid; grid-template-columns: 220px 1fr; gap: 2.2rem; align-items: start; margin: 2rem 0 2.5rem; }
+@media (max-width: 720px) { .leseprobe-hero { grid-template-columns: 1fr; justify-items: center; } }
+.leseprobe-hero__cover img { width: 220px; max-width: 60vw; height: auto; border-radius: 10px; box-shadow: 0 14px 34px rgba(24,33,62,0.22); display: block; }
+.leseprobe-form { margin-top: 1.3rem; }
+.leseprobe-points { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; margin: 1.2rem 0; }
+@media (max-width: 720px) { .leseprobe-points { grid-template-columns: 1fr; } }
+.lp-point { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 1.2rem; }
+.lp-point h3 { margin: 0 0 0.4rem; font-size: 1.05rem; }
+.lp-point p { margin: 0; color: rgba(24,33,62,0.72); }
