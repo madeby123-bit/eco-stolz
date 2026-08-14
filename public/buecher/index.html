@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/style.css?v=20260729" />
+  <link rel="stylesheet" href="/style.css?v=20260730" />
 
     <script type="application/ld+json">
   {
@@ -62,7 +62,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
 </head>
-<body>
+<body class="page--light">
   <a href="#main" class="skip-link">Zum Inhalt springen</a>
 
   <div class="scroll-progress" id="scrollProgress"></div>
@@ -101,7 +101,6 @@
           <a href="/ueber-uns" class="nav__link" aria-haspopup="true">Unternehmen<span class="nav__caret" aria-hidden="true">▾</span></a>
           <div class="nav__sub">
             <a href="/ueber-uns" class="nav__sublink">Über uns</a>
-            <a href="/leseprobe" class="nav__sublink">Leseprobe: Wasser ist Leben</a>
             <a href="/karriere" class="nav__sublink">Karriere</a>
             <a href="/mission-vision" class="nav__sublink">Mission &amp; Vision</a>
             <a href="/zertifikate" class="nav__sublink">Zertifikate</a>
@@ -160,7 +159,7 @@
             <p class="book__meta">Taschenbuch · 219 Seiten · 22,85 €</p>
             <div class="book__actions">
               <a class="btn btn--primary" href="https://www.amazon.de/dp/B0HD9HK834" target="_blank" rel="noopener">Auf Amazon ansehen →</a>
-              <a class="btn btn--ghost" href="#leseprobe">Kostenlose Leseprobe →</a>
+              <a class="btn btn--ghost js-lp" data-buch="1" href="#leseprobe">Kostenlose Leseprobe →</a>
             </div>
           </div>
         </article>
@@ -178,6 +177,7 @@
             <p class="book__meta">Taschenbuch · 164 Seiten · 22,85 € · Kindle 8,88 €</p>
             <div class="book__actions">
               <a class="btn btn--primary" href="https://www.amazon.de/dp/B0HD99H9PM" target="_blank" rel="noopener">Auf Amazon ansehen →</a>
+              <a class="btn btn--ghost js-lp" data-buch="2" href="#leseprobe">Kostenlose Leseprobe →</a>
             </div>
           </div>
         </article>
@@ -190,7 +190,12 @@
           <div class="cform__grid">
             <div class="cform__field"><label for="lp-name">Vorname (optional)</label><input type="text" id="lp-name" name="FIRSTNAME" placeholder="Wie dürfen wir dich ansprechen?" autocomplete="given-name" /></div>
             <div class="cform__field"><label for="lp-email">E-Mail-Adresse <span class="req">*</span></label><input type="email" id="lp-email" name="EMAIL" placeholder="ihre@email.at" required autocomplete="email" /></div>
-            <input type="text" name="email_address_check" value="" class="cform__hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            <div class="cform__field cform__field--full">
+                <span class="cform__label">Für welches Buch möchtest du die Leseprobe? <span class="req">*</span></span>
+                <label class="book-choice"><input type="radio" id="buch-1" name="BUCH" value="Wasser ist Leben" checked /> „Wasser ist Leben“</label>
+                <label class="book-choice"><input type="radio" id="buch-2" name="BUCH" value="Mein Vater und die chemiefreie Wasseraufbereitung TESL II" /> „Mein Vater und die chemiefreie Wasseraufbereitung TESL II“</label>
+              </div>
+              <input type="text" name="email_address_check" value="" class="cform__hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
             <input type="hidden" name="locale" value="de" />
             <input type="hidden" name="html_type" value="simple" />
             <div class="cform__actions">
@@ -198,7 +203,12 @@
               <span class="cform__note">Kein Spam. Jederzeit mit einem Klick abbestellbar.</span>
             </div>
           </div>
-        </form>
+                  </form>
+          <div class="leseprobe-points" style="margin-top:1.6rem;">
+            <div class="lp-point"><h3>Sofort im Postfach</h3><p>Prolog und erstes Kapitel kommen direkt nach der Anmeldung, ganz ohne Wartezeit.</p></div>
+            <div class="lp-point"><h3>Eine Familie, ein Lebenswerk</h3><p>Die persönliche Geschichte einer Familie, die sich seit 1988 dem Wasser widmet.</p></div>
+            <div class="lp-point"><h3>Recherchiert, nicht behauptet</h3><p>Wissenschaft und persönliche Erfahrung sauber getrennt, nachvollziehbar mit Quellen.</p></div>
+          </div>
       </section>
     </div>
   </section>
@@ -285,6 +295,9 @@
     </div>
   </div>
 
+  <script>
+    (function(){document.querySelectorAll('.js-lp').forEach(function(b){b.addEventListener('click',function(){var r=document.getElementById(b.getAttribute('data-buch')==='2'?'buch-2':'buch-1');if(r)r.checked=true;});});})();
+  </script>
   <script src="/main.js?v=20260727"></script>
 </body>
 </html>
