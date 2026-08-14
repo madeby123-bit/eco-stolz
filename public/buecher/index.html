@@ -195,7 +195,7 @@
                 <label class="book-choice"><input type="radio" id="buch-1" name="BUCH" value="Wasser ist Leben" checked /> „Wasser ist Leben“</label>
                 <label class="book-choice"><input type="radio" id="buch-2" name="BUCH" value="Mein Vater und die chemiefreie Wasseraufbereitung TESL II" /> „Mein Vater und die chemiefreie Wasseraufbereitung TESL II“</label>
               </div>
-              <input type="text" name="email_address_check" value="" class="cform__hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+              <input type="text" name="email_address_check" value="" class="cform__hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
             <input type="hidden" name="locale" value="de" />
             <input type="hidden" name="html_type" value="simple" />
             <div class="cform__actions">
@@ -304,7 +304,7 @@
       document.querySelectorAll('.js-lp').forEach(function(b){b.addEventListener('click',function(){var r=document.getElementById(b.getAttribute('data-buch')==='2'?'buch-2':'buch-1');if(r)r.checked=true;});});
       // Leseprobe: im Hintergrund an Brevo senden (no-cors), Danke-Meldung inline zeigen, statt auf Brevos Rohseite zu landen
       var lpForm=document.getElementById('lpForm');
-      if(lpForm){lpForm.addEventListener('submit',function(e){e.preventDefault();var hp=lpForm.querySelector('input[name="email_address_check"]');if(hp&&hp.value)return;var btn=lpForm.querySelector('button[type="submit"]');if(btn)btn.disabled=true;fetch(lpForm.action,{method:'POST',mode:'no-cors',body:new FormData(lpForm)}).catch(function(){}).finally(function(){lpForm.style.display='none';var s=document.getElementById('lpSuccess');if(s)s.hidden=false;s&&s.scrollIntoView({behavior:'smooth',block:'center'});});});}
+      if(lpForm){lpForm.addEventListener('submit',function(e){e.preventDefault();var hp=lpForm.querySelector('input[name="email_address_check"]');if(hp&&hp.value)return;var btn=lpForm.querySelector('button[type="submit"]');if(btn)btn.disabled=true;try{fetch(lpForm.action,{method:'POST',mode:'no-cors',body:new FormData(lpForm)});}catch(_){}lpForm.style.display='none';var s=document.getElementById('lpSuccess');if(s){s.hidden=false;s.scrollIntoView({behavior:'smooth',block:'center'});}});}
       function eq(sel){var els=document.querySelectorAll(sel);if(els.length<2)return;var m=0;els.forEach(function(e){e.style.minHeight='';if(e.offsetHeight>m)m=e.offsetHeight;});els.forEach(function(e){e.style.minHeight=m+'px';});}
       function run(){eq('.book__body h2');eq('.book__sub');eq('.book__meta');}
       run();
