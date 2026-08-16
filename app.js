@@ -14,6 +14,9 @@ app.use((req, res, next) => {
   next();
 });
 
+// /leseprobe wurde mit /buecher zusammengefuehrt -> dauerhaft weiterleiten
+app.get(['/leseprobe', '/leseprobe/'], (req, res) => res.redirect(301, '/buecher#leseprobe'));
+
 // Statische Dateien aus dem public-Ordner ausliefern
 app.use(express.static(path.join(__dirname, 'public')));
 
