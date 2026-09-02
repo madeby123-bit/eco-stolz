@@ -165,6 +165,50 @@
     </div>
   </section>
 
+  <!-- LEAD-MAGNET: Wasserhaerte-Selbsttest -->
+  <section class="section" aria-labelledby="leadmagnet-title">
+    <div class="container article-body" style="max-width:820px;">
+      <section class="book-optin" id="wasser-check">
+        <p class="eyebrow reveal" data-reveal>Kostenloser Selbsttest</p>
+        <h2 id="leadmagnet-title" class="reveal" data-reveal data-delay="60">Ist dein Wasser zu hart? Der 5-Minuten-Test.</h2>
+        <p class="lead reveal" data-reveal data-delay="120">Trag dich kurz ein, dann siehst du sofort die Checkliste, mit der du in 5 Minuten selbst einschätzt, wie hart dein Wasser wahrscheinlich ist.</p>
+        <form class="cform book-optin__form" data-inline-success="checkSuccess" action="https://formsubmit.co/office@eco-stolz.com" method="POST">
+          <input type="hidden" name="_subject" value="Neue Anmeldung: Wasserhärte-Selbsttest (Blog-Übersicht)" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="text" name="_honey" class="cform__hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <div class="cform__grid">
+            <div class="cform__row cform__row--2">
+              <div class="cform__field"><label for="wc-name-1">Vorname (optional)</label><input type="text" id="wc-name-1" name="Vorname" autocomplete="given-name" /></div>
+              <div class="cform__field"><label for="wc-email-1">E-Mail-Adresse <span class="req">*</span></label><input type="email" id="wc-email-1" name="E-Mail" required autocomplete="email" placeholder="name@beispiel.at" /></div>
+            </div>
+            <div class="cform__actions">
+              <button type="submit" class="btn btn--primary">Checkliste jetzt freischalten</button>
+              <span class="cform__note">Kein Spam, keine Weitergabe, jederzeit abbestellbar.</span>
+            </div>
+          </div>
+        </form>
+        <div class="lp-success" id="checkSuccess" hidden>
+          <h3>Danke! Hier ist dein Test:</h3>
+          <p style="margin-bottom:1rem;">Hake ab, was auf dich zutrifft:</p>
+          <ul class="problem__list" style="margin-bottom:1.2rem;">
+            <li>☐ Weiße Kalkränder an Armaturen oder Fliesen</li>
+            <li>☐ Kalkablagerungen im Wasserkocher oder der Kaffeemaschine</li>
+            <li>☐ Haut spannt oder juckt nach dem Duschen</li>
+            <li>☐ Haare wirken stumpf, schwer zu kämmen</li>
+            <li>☐ Hoher Waschmittelverbrauch trotz normaler Dosierung</li>
+            <li>☐ Metallischer oder faden Geschmack im Leitungswasser</li>
+            <li>☐ Geschirr bekommt trotz Spülmaschine weiße Flecken</li>
+            <li>☐ Geräte (Boiler, Waschmaschine) fallen ungewöhnlich oft aus</li>
+          </ul>
+          <p><strong>0–2 Treffer:</strong> Dein Wasser ist wahrscheinlich eher weich.<br>
+          <strong>3–5 Treffer:</strong> Mittlere Wasserhärte, lohnt sich zu beobachten.<br>
+          <strong>6+ Treffer:</strong> Hohe Wahrscheinlichkeit für hartes Wasser, ein <a href="/kalk-im-wasser">Blick in unser Wasserwissen</a> oder eine <a href="/kontakt#anfrage">kostenlose Beratung</a> gibt dir Klarheit.</p>
+        </div>
+      </section>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section class="section cta" id="kontakt" aria-labelledby="blog-cta-title">
     <div class="cta__bg parallax-wrap">
@@ -270,6 +314,6 @@
     </div>
   </div>
 
-  <script src="/main.js?v=20260727"></script>
+  <script src="/main.js?v=20260901"></script>
 </body>
 </html>

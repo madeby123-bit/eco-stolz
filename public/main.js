@@ -279,3 +279,22 @@
 
   setLabel(currentLang());
 })();
+
+// Generische Inline-Formulare: Absendung im Hintergrund (no-cors), danach
+// Formular ausblenden und das per data-inline-success referenzierte Element zeigen,
+// statt auf FormSubmit/Brevos Rohseite zu landen. Nutzung: <form data-inline-success="idOfSuccessBox">
+(function () {
+  document.querySelectorAll('form[data-inline-success]').forEach(function (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var hp = form.querySelector('.cform__hp');
+      if (hp && hp.value) return;
+      var btn = form.querySelector('button[type="submit"]');
+      if (btn) btn.disabled = true;
+      try { fetch(form.action, { method: 'POST', mode: 'no-cors', body: new FormData(form) }); } catch (_) {}
+      form.style.display = 'none';
+      var successEl = document.getElementById(form.getAttribute('data-inline-success'));
+      if (successEl) { successEl.hidden = false; successEl.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+    });
+  });
+})();
