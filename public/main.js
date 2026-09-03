@@ -298,3 +298,37 @@
     });
   });
 })();
+
+// Wasserhaerte-Selbsttest: live auswerten und passenden CTA einblenden.
+// Nutzung: <div data-water-checklist> mit Checkboxen, danach <div data-water-result>
+// mit [data-water-count], [data-water-text], [data-water-cta] als Kinder.
+(function () {
+  document.querySelectorAll('[data-water-checklist]').forEach(function (list) {
+    var result = list.parentElement.querySelector('[data-water-result]');
+    if (!result) return;
+    var countEl = result.querySelector('[data-water-count]');
+    var textEl = result.querySelector('[data-water-text]');
+    var ctaEl = result.querySelector('[data-water-cta]');
+    var boxes = list.querySelectorAll('input[type="checkbox"]');
+    function update() {
+      var n = 0;
+      boxes.forEach(function (b) { if (b.checked) n++; });
+      if (countEl) countEl.textContent = n;
+      if (n === 0) {
+        if (textEl) textEl.textContent = 'Klick oben die zutreffenden Punkte an, um dein Ergebnis zu sehen.';
+        if (ctaEl) ctaEl.innerHTML = '';
+      } else if (n <= 2) {
+        if (textEl) textEl.textContent = 'Dein Wasser ist wahrscheinlich eher weich, aktuell vermutlich kein akuter Handlungsbedarf.';
+        if (ctaEl) ctaEl.innerHTML = '<a href="/wasserwissen" class="btn btn--ghost">Weitere Artikel im Wasserwissen</a>';
+      } else if (n <= 5) {
+        if (textEl) textEl.textContent = 'Mittlere Wasserhärte, das lohnt sich zu beobachten, bevor Kalk zum teuren Problem wird.';
+        if (ctaEl) ctaEl.innerHTML = '<a href="/wasseraufbereitung" class="btn btn--ghost">Mehr über Wasseraufbereitung</a>';
+      } else {
+        if (textEl) textEl.textContent = 'Hohe Wahrscheinlichkeit für hartes Wasser, jetzt lohnt sich ein genauerer Blick.';
+        if (ctaEl) ctaEl.innerHTML = '<a href="/#produkte" class="btn btn--primary">Passendes TESL® II Modell finden</a> <a href="/kontakt#anfrage" class="btn btn--ghost">Kostenlose Beratung</a>';
+      }
+    }
+    boxes.forEach(function (b) { b.addEventListener('change', update); });
+    update();
+  });
+})();

@@ -263,20 +263,22 @@
         </form>
         <div class="lp-success" id="checkSuccess" hidden>
           <h3>Danke! Hier ist dein Test:</h3>
-          <p style="margin-bottom:1rem;">Hake ab, was auf dich zutrifft:</p>
-          <ul class="problem__list" style="margin-bottom:1.2rem;">
-            <li>☐ Weiße Kalkränder an Armaturen oder Fliesen</li>
-            <li>☐ Kalkablagerungen im Wasserkocher oder der Kaffeemaschine</li>
-            <li>☐ Haut spannt oder juckt nach dem Duschen</li>
-            <li>☐ Haare wirken stumpf, schwer zu kämmen</li>
-            <li>☐ Hoher Waschmittelverbrauch trotz normaler Dosierung</li>
-            <li>☐ Metallischer oder faden Geschmack im Leitungswasser</li>
-            <li>☐ Geschirr bekommt trotz Spülmaschine weiße Flecken</li>
-            <li>☐ Geräte (Boiler, Waschmaschine) fallen ungewöhnlich oft aus</li>
-          </ul>
-          <p><strong>0–2 Treffer:</strong> Dein Wasser ist wahrscheinlich eher weich.<br>
-          <strong>3–5 Treffer:</strong> Mittlere Wasserhärte, lohnt sich zu beobachten.<br>
-          <strong>6+ Treffer:</strong> Hohe Wahrscheinlichkeit für hartes Wasser, ein <a href="/kalk-im-wasser">Blick in unser Wasserwissen</a> oder eine <a href="/kontakt#anfrage">kostenlose Beratung</a> gibt dir Klarheit.</p>
+          <p style="margin-bottom:1rem;">Klick an, was auf dich zutrifft, das Ergebnis aktualisiert sich sofort:</p>
+          <div class="cform__checks" data-water-checklist>
+            <label class="cform__check"><input type="checkbox" /><span>Weiße Kalkränder an Armaturen oder Fliesen</span></label>
+            <label class="cform__check"><input type="checkbox" /><span>Kalkablagerungen im Wasserkocher oder der Kaffeemaschine</span></label>
+            <label class="cform__check"><input type="checkbox" /><span>Haut spannt oder juckt nach dem Duschen</span></label>
+            <label class="cform__check"><input type="checkbox" /><span>Haare wirken stumpf, schwer zu kämmen</span></label>
+            <label class="cform__check"><input type="checkbox" /><span>Hoher Waschmittelverbrauch trotz normaler Dosierung</span></label>
+            <label class="cform__check"><input type="checkbox" /><span>Metallischer oder fader Geschmack im Leitungswasser</span></label>
+            <label class="cform__check"><input type="checkbox" /><span>Geschirr bekommt trotz Spülmaschine weiße Flecken</span></label>
+            <label class="cform__check"><input type="checkbox" /><span>Geräte (Boiler, Waschmaschine) fallen ungewöhnlich oft aus</span></label>
+          </div>
+          <div class="water-result" data-water-result>
+            <p class="water-result__count">Treffer: <strong data-water-count>0</strong> von 8</p>
+            <p data-water-text>Klick oben die zutreffenden Punkte an, um dein Ergebnis zu sehen.</p>
+            <div class="cta__actions" data-water-cta style="margin-top:0.8rem;"></div>
+          </div>
         </div>
       </section>
     </div>

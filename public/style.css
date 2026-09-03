@@ -835,3 +835,8 @@ body { top: 0 !important; position: static !important; }
 .article-sources ol { margin: 0; padding-left: 1.2rem; }
 .article-sources li { margin-bottom: 0.35rem; color: rgba(24,33,62,0.75); }
 .article-sources a { color: var(--teal); }
+
+/* Interaktives Ergebnis (Wasserhaerte-Checkliste) */
+.water-result { margin-top: 1.4rem; padding: 1.3rem 1.5rem; border-radius: 16px; background: #fff; border: 1px solid var(--line); }
+.water-result__count { font-weight: 700; font-size: 1.05rem; margin: 0 0 0.4rem; }
+.water-result__count strong { color: var(--teal); font-size: 1.3rem; }
