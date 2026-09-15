@@ -17,6 +17,18 @@ app.use((req, res, next) => {
 // /leseprobe wurde mit /buecher zusammengefuehrt -> dauerhaft weiterleiten
 app.get(['/leseprobe', '/leseprobe/'], (req, res) => res.redirect(301, '/buecher#leseprobe'));
 
+// Alte URLs aus frueherer Seitenstruktur (laut Google Search Console 404) -> dauerhaft weiterleiten
+app.get(['/tesl-2-medium', '/tesl-2-medium/'], (req, res) => res.redirect(301, '/tesl-ii-medium'));
+app.get(['/tesl-2-mini', '/tesl-2-mini/'], (req, res) => res.redirect(301, '/tesl-ii-mini'));
+app.get(['/setter-closer', '/setter-closer/'], (req, res) => res.redirect(301, '/karriere/social-media-setter-closer'));
+app.get(['/social-selling-online-verkaufs-partner', '/social-selling-online-verkaufs-partner/'], (req, res) => res.redirect(301, '/karriere/social-selling-partner'));
+app.get(['/reinigung-heizsystem/rohre/boiler/etc', '/reinigung-heizsystem/rohre/boiler/etc/'], (req, res) => res.redirect(301, '/reinigung-heizsysteme'));
+app.get(['/rohrreinigung', '/rohrreinigung/'], (req, res) => res.redirect(301, '/reinigung-heizsysteme'));
+app.get(['/kunden-1', '/kunden-1/'], (req, res) => res.redirect(301, '/kunden'));
+app.get(['/warum-wasseraufbereitung', '/warum-wasseraufbereitung/'], (req, res) => res.redirect(301, '/wasseraufbereitung'));
+app.get(['/home', '/home/'], (req, res) => res.redirect(301, '/'));
+app.get(['/kontakt-karriere', '/kontakt-karriere/'], (req, res) => res.redirect(301, '/karriere'));
+
 // Statische Dateien aus dem public-Ordner ausliefern
 app.use(express.static(path.join(__dirname, 'public')));
 
