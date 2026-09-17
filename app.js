@@ -30,7 +30,18 @@ app.get(['/home', '/home/'], (req, res) => res.redirect(301, '/'));
 app.get(['/kontakt-karriere', '/kontakt-karriere/'], (req, res) => res.redirect(301, '/karriere'));
 
 // Statische Dateien aus dem public-Ordner ausliefern
-app.use(express.static(path.join(__dirname, 'public')));
+// (Langzeit-Caching; die massgebliche Steuerung erfolgt ueber public/.htaccess auf LiteSpeed,
+//  dies hier greift als Absicherung, falls eine Datei ueber Node ausgeliefert wird)
+app.use(express.static(path.join(__dirname, 'public'), {
+  maxAge: '30d',
+  setHeaders: (res, filePath) => {
+    if (/\.(css|js|mjs|woff2?|ttf|otf|eot)$/i.test(filePath)) {
+      res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+    } else if (/\.html?$/i.test(filePath)) {
+      res.setHeader('Cache-Control', 'public, max-age=0, must-revalidate');
+    }
+  }
+}));
 
 // Startseite
 app.get('/', (req, res) => {
