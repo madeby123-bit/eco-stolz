@@ -325,7 +325,7 @@
         if (ctaEl) ctaEl.innerHTML = '<a href="/wasseraufbereitung" class="btn btn--ghost">Mehr über Wasseraufbereitung</a>';
       } else {
         if (textEl) textEl.textContent = 'Hohe Wahrscheinlichkeit für hartes Wasser, jetzt lohnt sich ein genauerer Blick.';
-        if (ctaEl) ctaEl.innerHTML = '<a href="/#produkte" class="btn btn--primary">Passendes TESL® II Modell finden</a> <a href="/kontakt#anfrage" class="btn btn--ghost">Kostenlose Beratung</a>';
+        if (ctaEl) ctaEl.innerHTML = '<a href="/modellfinder" class="btn btn--primary">Passendes TESL® II Modell finden</a> <a href="/kontakt#anfrage" class="btn btn--ghost">Kostenlose Beratung</a>';
       }
     }
     boxes.forEach(function (b) { b.addEventListener('change', update); });

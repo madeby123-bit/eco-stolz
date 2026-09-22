@@ -586,12 +586,16 @@ body::after {
 .cform__field { display: flex; flex-direction: column; gap: 0.5rem; }
 .cform__field label, .cform__legend { font-weight: 600; font-size: 0.92rem; color: var(--ink); letter-spacing: 0.01em; }
 .cform .req { color: var(--aqua); }
-.cform input[type="text"], .cform input[type="email"], .cform textarea {
+.cform input[type="text"], .cform input[type="email"], .cform textarea, .cform select {
   width: 100%; padding: 0.92rem 1.05rem; border: 1px solid var(--line); border-radius: 14px;
   background: #fff; font: inherit; color: var(--ink); transition: border-color .2s, box-shadow .2s;
 }
+.cform select { appearance: none; cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%2318213E'%3E%3Cpath fill-rule='evenodd' d='M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z' clip-rule='evenodd'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 1rem center; background-size: 1.1rem; padding-right: 2.6rem;
+}
 .cform input::placeholder, .cform textarea::placeholder { color: rgba(24,33,62,0.4); }
-.cform input:focus, .cform textarea:focus { outline: none; border-color: var(--aqua); box-shadow: 0 0 0 3px rgba(239,121,62,0.16); }
+.cform input:focus, .cform textarea:focus, .cform select:focus { outline: none; border-color: var(--aqua); box-shadow: 0 0 0 3px rgba(239,121,62,0.16); }
 .cform textarea { min-height: 160px; resize: vertical; }
 .cform__legend { display: block; margin-bottom: 0.7rem; }
 .cform__checks { display: grid; gap: 0.7rem; grid-template-columns: 1fr; }
