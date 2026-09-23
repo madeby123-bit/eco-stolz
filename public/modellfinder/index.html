@@ -422,17 +422,17 @@
     var MAP = {
       '3/8': { modell: 'TESL® II Mini', preis: 199,  durchfluss: 500,   laenge: 8.5 },
       '1/2': { modell: 'TESL® II Mini', preis: 229,  durchfluss: 1800,  laenge: 11.5 },
-      '1':   { modell: 'TESL® II', preis: 3180, durchfluss: 3500,  laenge: 13.5 },
-      '5/4': { modell: 'TESL® II', preis: 3545, durchfluss: 7000,  laenge: 13.5 },
-      '6/4': { modell: 'TESL® II', preis: 3885, durchfluss: 8500,  laenge: 13.5 },
-      '2':   { modell: 'TESL® II Max', preis: 7020, durchfluss: 18000, laenge: 33 },
-      '3':   { modell: 'TESL® II Max', preis: 7870, durchfluss: 30000, laenge: 33 }
+      '1':   { modell: 'TESL® II', preis: 3180, durchfluss: 3500,  laenge: 24.5 },
+      '5/4': { modell: 'TESL® II', preis: 3545, durchfluss: 7000,  laenge: 24.5 },
+      '6/4': { modell: 'TESL® II', preis: 3885, durchfluss: 8500,  laenge: 24.5 },
+      '2':   { modell: 'TESL® II Max', preis: 7020, durchfluss: 18000, laenge: 45 },
+      '3':   { modell: 'TESL® II Max', preis: 7870, durchfluss: 30000, laenge: 45 }
     };
     var JUNIOR = { modell: 'TESL® II Junior', preis: 2365, durchfluss: 1800, laenge: 16 };
-    var STANDARD_34 = { modell: 'TESL® II', preis: 2820, durchfluss: 2900, laenge: 13.5 };
+    var STANDARD_34 = { modell: 'TESL® II', preis: 2820, durchfluss: 2900, laenge: 20 };
 
     function specText(pick) {
-      return '<strong style="color:var(--teal);font-size:1.15rem;">' + pick.modell + '</strong><br>Durchfluss bis ' + fmt(pick.durchfluss).replace(' €', '') + ' l/h, Einbaulänge ' + pick.laenge + ' cm, Netto-Verkaufspreis ' + fmt(pick.preis) + '. Chemiefrei, ohne Salz, ohne Wartungsaufwand.';
+      return '<strong style="color:var(--teal);font-size:1.15rem;">' + pick.modell + '</strong><br>Durchfluss bis ' + fmt(pick.durchfluss).replace(' €', '') + ' l/h, Einbaulänge ' + String(pick.laenge).replace('.', ',') + ' cm, Netto-Verkaufspreis ' + fmt(pick.preis) + '. Chemiefrei, ohne Salz, ohne Wartungsaufwand.';
     }
 
     /* ---------- Tabs ---------- */
