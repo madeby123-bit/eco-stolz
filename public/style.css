@@ -781,6 +781,14 @@ body { top: 0 !important; position: static !important; }
 .book-optin { margin-top: 2.8rem; padding: 2rem; border: 1px solid var(--line); border-radius: 20px; background: linear-gradient(160deg, rgba(239,121,62,0.06), rgba(24,33,62,0.04)); }
 .book-optin h2 { margin-top: 0; }
 .book-optin__form { margin-top: 1.2rem; }
+.mf-tabs { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 1.2rem; }
+.mf-tab {
+  padding: 0.7rem 1.2rem; border-radius: 999px; border: 1px solid var(--line); background: #fff;
+  font: inherit; font-weight: 600; font-size: 0.92rem; color: rgba(24,33,62,0.6); cursor: pointer;
+  transition: background .2s, color .2s, border-color .2s;
+}
+.mf-tab:hover { border-color: var(--aqua); color: var(--ink); }
+.mf-tab.is-active { background: var(--grad-aqua); border-color: transparent; color: #18213E; }
 
 
 /* ===== Leseprobe-Seite ===== */

@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/style.css?v=20260922" />
+  <link rel="stylesheet" href="/style.css?v=20260923" />
 
   <script type="application/ld+json">
   {
@@ -158,52 +158,95 @@
   <section class="section" aria-labelledby="finder-title">
     <div class="container article-body" style="max-width:820px;">
       <section class="book-optin" id="finder">
-        <p class="eyebrow reveal" data-reveal>In 2 Schritten zum passenden Modell</p>
+        <p class="eyebrow reveal" data-reveal>In wenigen Klicks zum passenden Modell</p>
         <h2 id="finder-title" class="reveal" data-reveal data-delay="60">Modellfinder</h2>
-        <p class="lead reveal" data-reveal data-delay="120">Wähle deinen Rohranschluss und Einsatzbereich, das Ergebnis erscheint sofort darunter.</p>
+        <p class="lead reveal" data-reveal data-delay="120">Kennst du deinen Rohranschluss? Wenn nicht, reicht auch die Anzahl der Personen in deinem Haushalt.</p>
 
-        <div class="cform" style="margin-top:1.4rem;">
-          <div class="cform__grid">
-            <div class="cform__row cform__row--2">
-              <div class="cform__field">
-                <label for="mf-anschluss">Rohranschluss <span class="req">*</span></label>
-                <select id="mf-anschluss" data-mf-anschluss>
-                  <option value="">Bitte wählen …</option>
-                  <option value="3/8">3/8"</option>
-                  <option value="1/2">1/2"</option>
-                  <option value="3/4">3/4"</option>
-                  <option value="1">1"</option>
-                  <option value="5/4">5/4"</option>
-                  <option value="6/4">6/4"</option>
-                  <option value="2">2"</option>
-                  <option value="3">3"</option>
-                </select>
+        <div class="mf-tabs reveal" data-reveal data-delay="140">
+          <button type="button" class="mf-tab is-active" data-mf-tabbtn="anschluss">Ich kenne meinen Rohranschluss</button>
+          <button type="button" class="mf-tab" data-mf-tabbtn="personen">Ich kenne ihn nicht</button>
+        </div>
+
+        <div data-mf-panel="anschluss">
+          <div class="cform" style="margin-top:1.4rem;">
+            <div class="cform__grid">
+              <div class="cform__row cform__row--2">
+                <div class="cform__field">
+                  <label for="mf-anschluss">Rohranschluss <span class="req">*</span></label>
+                  <select id="mf-anschluss" data-mf-anschluss>
+                    <option value="">Bitte wählen …</option>
+                    <option value="3/8">3/8"</option>
+                    <option value="1/2">1/2"</option>
+                    <option value="3/4">3/4"</option>
+                    <option value="1">1"</option>
+                    <option value="5/4">5/4"</option>
+                    <option value="6/4">6/4"</option>
+                    <option value="2">2"</option>
+                    <option value="3">3"</option>
+                  </select>
+                </div>
+                <div class="cform__field">
+                  <label for="mf-einsatz">Einsatzbereich <span class="req">*</span></label>
+                  <select id="mf-einsatz" data-mf-einsatz>
+                    <option value="Privathaushalt">Privathaushalt</option>
+                    <option value="Hotel/Gastro">Hotel/Gastro</option>
+                    <option value="Gewerbe/Industrie">Gewerbe/Industrie</option>
+                    <option value="Großanlage/Mehrfamilienhaus">Großanlage/Mehrfamilienhaus</option>
+                  </select>
+                </div>
               </div>
               <div class="cform__field">
-                <label for="mf-einsatz">Einsatzbereich <span class="req">*</span></label>
-                <select id="mf-einsatz" data-mf-einsatz>
-                  <option value="Privathaushalt">Privathaushalt</option>
-                  <option value="Hotel/Gastro">Hotel/Gastro</option>
-                  <option value="Gewerbe/Industrie">Gewerbe/Industrie</option>
-                  <option value="Großanlage/Mehrfamilienhaus">Großanlage/Mehrfamilienhaus</option>
-                </select>
+                <label for="mf-durchfluss">Max. Durchfluss in l/h <span style="font-weight:400;color:rgba(24,33,62,0.55);">(optional, falls bekannt)</span></label>
+                <input type="text" id="mf-durchfluss" inputmode="numeric" placeholder="z. B. 3.500" />
               </div>
             </div>
-            <div class="cform__field">
-              <label for="mf-durchfluss">Max. Durchfluss in l/h <span style="font-weight:400;color:rgba(24,33,62,0.55);">(optional, falls bekannt)</span></label>
-              <input type="text" id="mf-durchfluss" inputmode="numeric" placeholder="z. B. 3.500" />
-            </div>
+          </div>
+
+          <div class="water-result" data-mf-result hidden>
+            <p class="water-result__count" data-mf-headline>Unser Vorschlag</p>
+            <p data-mf-text></p>
+            <p style="margin-top:0.6rem;font-size:0.85rem;color:rgba(24,33,62,0.55);">Alle Preise netto, exkl. Montage. Bei Unsicherheit empfehlen wir eine kurze Rücksprache.</p>
+            <div class="cta__actions" data-mf-cta style="margin-top:0.9rem;"></div>
+          </div>
+          <div class="water-result" data-mf-placeholder>
+            <p data-mf-placeholder-text>Wähle oben deinen Rohranschluss, das passende Modell erscheint hier.</p>
           </div>
         </div>
 
-        <div class="water-result" data-mf-result hidden>
-          <p class="water-result__count" data-mf-headline>Unser Vorschlag</p>
-          <p data-mf-text></p>
-          <p style="margin-top:0.6rem;font-size:0.85rem;color:rgba(24,33,62,0.55);">Alle Preise netto, exkl. Montage. Bei Unsicherheit empfehlen wir eine kurze Rücksprache.</p>
-          <div class="cta__actions" data-mf-cta style="margin-top:0.9rem;"></div>
-        </div>
-        <div class="water-result" data-mf-placeholder>
-          <p data-mf-placeholder-text>Wähle oben deinen Rohranschluss, das passende Modell erscheint hier.</p>
+        <div data-mf-panel="personen" hidden>
+          <div class="cform" style="margin-top:1.4rem;">
+            <div class="cform__grid">
+              <div class="cform__row cform__row--2">
+                <div class="cform__field">
+                  <label for="mf-personen">Wie viele Personen leben in deinem Haushalt? <span class="req">*</span></label>
+                  <select id="mf-personen" data-mf-personen>
+                    <option value="">Bitte wählen …</option>
+                    <option value="1-2">1–2 Personen</option>
+                    <option value="3-4">3–4 Personen</option>
+                    <option value="5-6">5–6 Personen</option>
+                    <option value="7+">Mehr, oder mehrere Wohnungen/Betrieb</option>
+                  </select>
+                </div>
+                <div class="cform__field">
+                  <label for="mf-baeder">Anzahl Badezimmer</label>
+                  <select id="mf-baeder" data-mf-baeder>
+                    <option value="1">1 Badezimmer</option>
+                    <option value="2+">2 oder mehr Badezimmer</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="water-result" data-mf-presult hidden>
+            <p class="water-result__count" data-mf-pheadline>Unser Vorschlag</p>
+            <p data-mf-ptext></p>
+            <p style="margin-top:0.6rem;font-size:0.85rem;color:rgba(24,33,62,0.55);" data-mf-pfootnote></p>
+            <div class="cta__actions" data-mf-pcta style="margin-top:0.9rem;"></div>
+          </div>
+          <div class="water-result" data-mf-pplaceholder>
+            <p>Wähle oben deine Haushaltsgröße, das passende Modell erscheint hier.</p>
+          </div>
         </div>
       </section>
     </div>
@@ -368,61 +411,118 @@
     </div>
   </div>
 
-  <script src="/main.js?v=20260922"></script>
+  <script src="/main.js?v=20260923"></script>
   <script>
   (function () {
-    var anschlussEl = document.querySelector('[data-mf-anschluss]');
-    var einsatzEl = document.querySelector('[data-mf-einsatz]');
-    if (!anschlussEl || !einsatzEl) return;
-    var resultEl = document.querySelector('[data-mf-result]');
-    var placeholderEl = document.querySelector('[data-mf-placeholder]');
-    var headlineEl = document.querySelector('[data-mf-headline]');
-    var textEl = document.querySelector('[data-mf-text]');
-    var ctaEl = document.querySelector('[data-mf-cta]');
-
-    // Reale Nettopreise je Rohranschluss, Stand von Eco Stolz.
-    var MAP = {
-      '3/8': { modell: 'TESL® II Mini', preis: 199 },
-      '1/2': { modell: 'TESL® II Mini', preis: 229 },
-      '1':   { modell: 'TESL® II', preis: 3180 },
-      '5/4': { modell: 'TESL® II', preis: 3545 },
-      '6/4': { modell: 'TESL® II', preis: 3885 },
-      '2':   { modell: 'TESL® II Max', preis: 7020 },
-      '3':   { modell: 'TESL® II Max', preis: 7870 }
-    };
-
     function fmt(n) {
       return n.toLocaleString('de-AT', { minimumFractionDigits: 0 }) + ' €';
     }
 
-    function update() {
-      var anschluss = anschlussEl.value;
-      if (!anschluss) {
-        resultEl.hidden = true;
-        placeholderEl.hidden = false;
-        return;
-      }
-      var einsatz = einsatzEl.value;
-      var pick;
-      if (anschluss === '3/4') {
-        pick = (einsatz === 'Privathaushalt')
-          ? { modell: 'TESL® II Junior', preis: 2365 }
-          : { modell: 'TESL® II', preis: 2820 };
-      } else {
-        pick = MAP[anschluss];
-      }
-      if (!pick) { resultEl.hidden = true; placeholderEl.hidden = false; return; }
+    // Reale Werte aus der offiziellen Eco-Stolz-Preisliste (PREISLISTE TESL II 2025 mit BANK).
+    var MAP = {
+      '3/8': { modell: 'TESL® II Mini', preis: 199,  durchfluss: 500,   laenge: 8.5 },
+      '1/2': { modell: 'TESL® II Mini', preis: 229,  durchfluss: 1800,  laenge: 11.5 },
+      '1':   { modell: 'TESL® II', preis: 3180, durchfluss: 3500,  laenge: 13.5 },
+      '5/4': { modell: 'TESL® II', preis: 3545, durchfluss: 7000,  laenge: 13.5 },
+      '6/4': { modell: 'TESL® II', preis: 3885, durchfluss: 8500,  laenge: 13.5 },
+      '2':   { modell: 'TESL® II Max', preis: 7020, durchfluss: 18000, laenge: 33 },
+      '3':   { modell: 'TESL® II Max', preis: 7870, durchfluss: 30000, laenge: 33 }
+    };
+    var JUNIOR = { modell: 'TESL® II Junior', preis: 2365, durchfluss: 1800, laenge: 16 };
+    var STANDARD_34 = { modell: 'TESL® II', preis: 2820, durchfluss: 2900, laenge: 13.5 };
 
-      headlineEl.textContent = 'Für deinen ' + anschluss + '"-Anschluss empfehlen wir:';
-      textEl.innerHTML = '<strong style="color:var(--teal);font-size:1.15rem;">' + pick.modell + '</strong><br>Netto-Verkaufspreis ' + fmt(pick.preis) + '. Chemiefrei, ohne Salz, ohne Wartungsaufwand.';
-      ctaEl.innerHTML = '<a href="/kontakt#anfrage" class="btn btn--primary">Angebot für ' + pick.modell + ' anfordern</a>';
-      placeholderEl.hidden = true;
-      resultEl.hidden = false;
+    function specText(pick) {
+      return '<strong style="color:var(--teal);font-size:1.15rem;">' + pick.modell + '</strong><br>Durchfluss bis ' + fmt(pick.durchfluss).replace(' €', '') + ' l/h, Einbaulänge ' + pick.laenge + ' cm, Netto-Verkaufspreis ' + fmt(pick.preis) + '. Chemiefrei, ohne Salz, ohne Wartungsaufwand.';
     }
 
-    anschlussEl.addEventListener('change', update);
-    einsatzEl.addEventListener('change', update);
-    update();
+    /* ---------- Tabs ---------- */
+    var tabBtns = document.querySelectorAll('[data-mf-tabbtn]');
+    var panels = document.querySelectorAll('[data-mf-panel]');
+    tabBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        tabBtns.forEach(function (b) { b.classList.toggle('is-active', b === btn); });
+        panels.forEach(function (p) { p.hidden = (p.getAttribute('data-mf-panel') !== btn.getAttribute('data-mf-tabbtn')); });
+      });
+    });
+
+    /* ---------- Panel 1: Rohranschluss ---------- */
+    var anschlussEl = document.querySelector('[data-mf-anschluss]');
+    var einsatzEl = document.querySelector('[data-mf-einsatz]');
+    if (anschlussEl && einsatzEl) {
+      var resultEl = document.querySelector('[data-mf-result]');
+      var placeholderEl = document.querySelector('[data-mf-placeholder]');
+      var headlineEl = document.querySelector('[data-mf-headline]');
+      var textEl = document.querySelector('[data-mf-text]');
+      var ctaEl = document.querySelector('[data-mf-cta]');
+
+      function update() {
+        var anschluss = anschlussEl.value;
+        if (!anschluss) { resultEl.hidden = true; placeholderEl.hidden = false; return; }
+        var einsatz = einsatzEl.value;
+        var pick = (anschluss === '3/4')
+          ? (einsatz === 'Privathaushalt' ? JUNIOR : STANDARD_34)
+          : MAP[anschluss];
+        if (!pick) { resultEl.hidden = true; placeholderEl.hidden = false; return; }
+
+        headlineEl.textContent = 'Für deinen ' + anschluss + '"-Anschluss empfehlen wir:';
+        textEl.innerHTML = specText(pick);
+        ctaEl.innerHTML = '<a href="/kontakt#anfrage" class="btn btn--primary">Angebot für ' + pick.modell + ' anfordern</a>';
+        placeholderEl.hidden = true;
+        resultEl.hidden = false;
+      }
+      anschlussEl.addEventListener('change', update);
+      einsatzEl.addEventListener('change', update);
+      update();
+    }
+
+    /* ---------- Panel 2: Personenzahl ----------
+       Grundlage: Einzeldurchfluss-Werte je Zapfstelle nach DIN 1988-300 (Dusche, Waschmaschine
+       je ca. 0,15 l/s), angenommen als typische gleichzeitige Nutzung je Haushaltsgröße.
+       Empfehlung von Christopher Kaier: für 1-2 Personen bevorzugt Junior (wenn der Einbau das
+       zulaesst), sonst ersatzweise 2x Mini 1/2" getrennt fuer Warm- und Kaltwasser. */
+    var personenEl = document.querySelector('[data-mf-personen]');
+    var baederEl = document.querySelector('[data-mf-baeder]');
+    if (personenEl && baederEl) {
+      var presultEl = document.querySelector('[data-mf-presult]');
+      var pplaceholderEl = document.querySelector('[data-mf-pplaceholder]');
+      var pheadlineEl = document.querySelector('[data-mf-pheadline]');
+      var ptextEl = document.querySelector('[data-mf-ptext]');
+      var pfootnoteEl = document.querySelector('[data-mf-pfootnote]');
+      var pctaEl = document.querySelector('[data-mf-pcta]');
+
+      function pUpdate() {
+        var personen = personenEl.value;
+        if (!personen) { presultEl.hidden = true; pplaceholderEl.hidden = false; return; }
+        var mehrereBaeder = baederEl.value === '2+';
+
+        var stufe = personen;
+        if (mehrereBaeder && (stufe === '1-2' || stufe === '3-4')) stufe = '5-6';
+
+        pheadlineEl.textContent = 'Unser Vorschlag für deinen Haushalt';
+        pfootnoteEl.textContent = 'Grobe Orientierung auf Basis typischer Zapfstellen-Nutzung (Dusche, Waschmaschine), keine exakte Messung. Bei Unsicherheit empfehlen wir eine kurze Rücksprache.';
+
+        if (stufe === '1-2') {
+          ptextEl.innerHTML = specText(JUNIOR) + '<br><br><strong>Empfohlen</strong>, wenn der Einbauplatz reicht (Einbaulänge 16 cm). Passt der Platz nicht, ersatzweise 2× <strong>TESL® II Mini 1/2"</strong> (je ' + fmt(MAP['1/2'].preis) + '), getrennt für Warm- und Kaltwasser.';
+          pctaEl.innerHTML = '<a href="/kontakt#anfrage" class="btn btn--primary">Angebot anfordern</a>';
+        } else if (stufe === '3-4') {
+          ptextEl.innerHTML = specText(JUNIOR);
+          pctaEl.innerHTML = '<a href="/kontakt#anfrage" class="btn btn--primary">Angebot für ' + JUNIOR.modell + ' anfordern</a>';
+        } else if (stufe === '5-6') {
+          ptextEl.innerHTML = specText(STANDARD_34);
+          pctaEl.innerHTML = '<a href="/kontakt#anfrage" class="btn btn--primary">Angebot für ' + STANDARD_34.modell + ' anfordern</a>';
+        } else {
+          pheadlineEl.textContent = 'Lieber kurz persönlich klären';
+          ptextEl.textContent = 'Bei größeren Haushalten, mehreren Wohnungen oder Gewerbe hängt die passende Größe stark vom Einzelfall ab. Schreib uns kurz, wir finden gemeinsam die richtige Lösung.';
+          pfootnoteEl.textContent = '';
+          pctaEl.innerHTML = '<a href="/kontakt#anfrage" class="btn btn--primary">Kostenlose Beratung anfordern</a>';
+        }
+        pplaceholderEl.hidden = true;
+        presultEl.hidden = false;
+      }
+      personenEl.addEventListener('change', pUpdate);
+      baederEl.addEventListener('change', pUpdate);
+      pUpdate();
+    }
   })();
   </script>
 </body>
